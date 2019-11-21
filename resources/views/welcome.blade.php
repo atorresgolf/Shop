@@ -10,20 +10,79 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/0cb2d9cf91.js"></script>
     <link rel="stylesheet" href="css/INDEX.css">
-    <style type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    </style>
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
     <title>INICIO</title>
 </head>
 
 <body>
-    
+  <div class="flex-center position-ref full-height">
+          @if (Route::has('login'))
+              <div class="top-right links">
+                  @auth
+                      <a href="{{ url('/home') }}">Home</a>
+                  @else
+                      <a href="{{ route('login') }}">Ingresá</a>
+
+                      @if (Route::has('register'))
+                          <a href="{{ route('register') }}">Registrate</a>
+                      @endif
+                  @endauth
+              </div>
+          @endif
+  </div>
+
     <div class="galeria1" style="position:relative; top:10rem;">
         <!--<h1>VISITA NUESTRAS CATEGORIAS</h1>-->
         <div class="contenedor-imagenes">
             <div class="imagen">
                 <a href="DRIVERS.PHP" class="card-link">
-                    <img src="img/drivers-mujer.jpg" alt="" ;>
+                    <img src="//img/drivers-mujer.jpg" alt="" ;>
                     <div class="inscripcion">
                         <h2></h2>
                         <p class="card-text">ENTRA A NUESTRA SECCION Y CONOCE LOS MEJORES DRIVERS DEL MERCADO</p>
