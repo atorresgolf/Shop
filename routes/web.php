@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/index', 'IndexController@index')->name('index');
+Route::get('/header', 'IndexController@header')->name('header');
+
+Route::get('/productos', 'ProductosController@listado');
