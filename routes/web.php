@@ -18,12 +18,34 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/drivers', function () {
+    return view('drivers');
+});
+
+Route::get('/hierros', function () {
+    return view('hierros');
+});
+
+Route::get('/putters', function () {
+    return view('putters');
+});
+
+Route::get('/accesorios', function () {
+    return view('accesorios');
+});
+
+Route::get('/academia', function () {
+    return view('academia');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-=======
 
 Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/header', 'IndexController@header')->name('header');
 
 Route::get('/productos', 'ProductosController@listado');
->>>>>>> Anto
+
