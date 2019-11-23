@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ESTILOS.css">
+    <title>.</title>
+</head>
+
+<header>
+    <?php include "barra-buscar.html"; ?>
+=======
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +29,7 @@
 <body>
 <header>
     @extends('barraBuscar')
+>>>>>>> Anto
         <div class="barra-nav">
             <nav class="navbar navbar-expand-lg navbar-dark bg-success">
                 <a class="navbar-brand" href="#">
@@ -41,8 +52,13 @@
                 </div>
 
                 <div class="navbar-nav d-flex flex-row justify-contents-center mx-auto">
+<<<<<<< HEAD
+                    <button type="button" class="btn btn-light btn-sm mr-3"><a>Creá tu cuenta</a>
+                <button type="button" class="btn btn-light btn-sm mr-3"><a>Ingresá</a>
+=======
                     <button type="button" class="btn btn-light btn-sm mr-3" action='register'><a>Creá tu cuenta</a>
                 <button type="button" class="btn btn-light btn-sm mr-3" action='login'><a>Ingresá</a>
+>>>>>>> Anto
                     </button>
                     </button>
                 </div>
@@ -50,6 +66,8 @@
         </div>
 </header>
 
+<<<<<<< HEAD
+=======
 <section>
          <div class="galeria1" style="position:relative; top:10rem;">
         <!--<h1>VISITA NUESTRAS CATEGORIAS</h1>-->
@@ -152,4 +170,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
+>>>>>>> Anto
 </html>
