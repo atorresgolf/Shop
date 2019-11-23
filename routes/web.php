@@ -19,11 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-=======
 
 Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/header', 'IndexController@header')->name('header');
 
 Route::get('/productos', 'ProductosController@listado');
->>>>>>> Anto
