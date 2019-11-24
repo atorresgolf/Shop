@@ -22,6 +22,7 @@ Route::get('/index', function () {
     return view('index');
 });
 
+
 Route::get('/drivers', function () {
     return view('drivers');
 });
