@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
+Auth::routes(['register' => false]);
+Auth::routes();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
 
 Route::get('/index', function () {
     return view('index');
@@ -41,6 +43,8 @@ Route::get('/accesorios', function () {
 Route::get('/academia', function () {
     return view('academia');
 });
+Route::get("/usuario", "UsuariosController@usuario")->middleware('auth');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -48,4 +52,8 @@ Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/header', 'IndexController@header')->name('header');
 
 Route::get('/productos', 'ProductosController@listado');
+Route::post('/agregarProducto', 'ProductosController@agregar');
 
+
+Route::post('/borrarProducto', 'ProductosController@borrar');
+Route::get('/producto/{id}', 'ProductosController@detalle'); //consulta detalle
