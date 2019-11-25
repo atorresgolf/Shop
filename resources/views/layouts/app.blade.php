@@ -8,6 +8,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -24,7 +33,7 @@
 <body>
     <div id="app">
         <!--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/index') }}">
                     <img src="img/shopgolf.png" width="150" height="100" class="d-inline-block align-center" alt="">
@@ -79,6 +88,15 @@
             @yield('content')
         </main>
     </div>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
 
 </html>

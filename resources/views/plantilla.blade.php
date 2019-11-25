@@ -14,18 +14,19 @@
     <link rel="stylesheet" href="{{ asset("css/FOOTER.css") }}">
     <link rel="stylesheet" href="{{ asset("css/ESTILOS.css") }}">
     <link rel="stylesheet" href="{{ asset("css/BARRA-BUSCAR.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
 
     <title>INICIO</title>
 </head>
 
 <body>
     <header>
-        <section class="webdesigntuts-workshop">
+        <!--<section class="webdesigntuts-workshop">
             <form action="" method="">
                 <input type="Buscar...." placeholder="buscar....">
                 <button>Buscar</button>
             </form>
-        </section>
+        </section>-->
 
         <div class="barra-nav">
             <nav class="navbar navbar-expand-lg navbar-dark bg-success">

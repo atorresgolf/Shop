@@ -9,9 +9,9 @@ use App\Producto;
 class productosController extends Controller
 {
     //
-    public function listado()
+    public function listado(Request $req)
     {
-        $productos = Producto::paginate(10);
+        $productos = producto::all();
 
         // dd($productos);
         $vac = compact('productos');
@@ -71,8 +71,5 @@ class productosController extends Controller
         $producto->delete();
         return redirect('/productos');
     }
-    
-
-
 
 }
