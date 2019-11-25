@@ -5,7 +5,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/0cb2d9cf91.js"></script>
@@ -14,7 +13,11 @@
     <link rel="stylesheet" href="{{ asset("css/FOOTER.css") }}">
     <link rel="stylesheet" href="{{ asset("css/ESTILOS.css") }}">
     <link rel="stylesheet" href="{{ asset("css/BARRA-BUSCAR.css") }}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+=======
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+>>>>>>> Alfredo
 
     <title>INICIO</title>
 </head>
@@ -30,15 +33,17 @@
 
         <div class="barra-nav">
             <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ ('index') }}">
                     <img src="img/shopgolf.png" width="80" height="50" class="d-inline-block align-center" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <!--<div class="collapse navbar-collapse" id="navbarNav">-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav mx-auto">
-                        <li class="nav-item active"></li>
+                        <!--<li class="nav-item active"></li>-->
                         <a class="nav-item nav-link mx-auto inicio" href="{{ ('index') }}">INICIO</a>
                         <a class="nav-item nav-link mx-auto drivers" href="{{ ('drivers') }}">DRIVERS</a>
                         <a class="nav-item nav-link mx-auto hierros" href="{{ ('hierros') }}">HIERROS</a>
