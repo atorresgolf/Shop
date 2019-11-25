@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="{{ asset("css/FOOTER.css") }}">
     <link rel="stylesheet" href="{{ asset("css/ESTILOS.css") }}">
     <link rel="stylesheet" href="{{ asset("css/BARRA-BUSCAR.css") }}">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+=======
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+>>>>>>> Alfredo
 
     <title>INICIO</title>
 </head>
