@@ -1,6 +1,10 @@
 <?php
-use Illuminate\Support\Facades\Route;
 
+//use Symfony\Component\Routing\Route;
+
+use App\Http\Controllers\ProductosController;
+use Illuminate\Support\Facades\Route;
+Auth::routes();
 Auth::routes(['register' => false]);
 Auth::routes();
 /*
@@ -53,8 +57,21 @@ Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/header', 'IndexController@header')->name('header');
 
 Route::get('/productos', 'ProductosController@listado');
-Route::post('/agregarProducto', 'ProductosController@agregar');
 
+Route::get('/agregarproducto', function () {
+    return view('agregarproducto');
+});
+
+Route::post('/agregarproductos', 'ProductosController@agregar');
+Route::get('/agregarproductos', function () {
+    return view('agregarproductos');
+});
+Route::post('/agregarproductos1', 'ProductosController@agregar');
+Route::get('/agregarproductos1', function () {
+    return view('agregarproductos1');
+});
+
+Route::post('/agregarproducto', 'ProductosController@agregar');
 
 Route::post('/borrarProducto', 'ProductosController@borrar');
 Route::get('/producto/{id}', 'ProductosController@detalle'); //consulta detalle
