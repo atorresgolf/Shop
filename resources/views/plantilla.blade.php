@@ -12,12 +12,7 @@
     <link rel="stylesheet" href="{{ asset("css/INDEX.css") }}">
     <link rel="stylesheet" href="{{ asset("css/FOOTER.css") }}">
     <link rel="stylesheet" href="{{ asset("css/ESTILOS.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/BARRA-BUSCAR.css") }}">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
-=======
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
->>>>>>> Alfredo
+    <link href="{{ asset("css/app.css") }}" rel="stylesheet">
 
     <title>INICIO</title>
 </head>
@@ -97,10 +92,10 @@
                 <ul>
                     <li><a href="{{ ('index') }}">Home</a></li>
                     <br>
-                    <li><a href="preguntas.php ">Preguntas Frecuentes</a></li>
+                    <li><a href="{{ ('preguntasfrecuentes') }}">Preguntas Frecuentes</a></li>
                     <li><a href="{{ ('register') }}">Formulario de Registro</a></li>
                     <li><a href="usuarios.php ">Perfil de Usuario</a></li>
-                    <li><a href="contacto.php ">Contacto</a></li>
+                    <li><a href="{{ ('contacto') }}">Contacto</a></li>
                 </ul>
             </section>
             <div>

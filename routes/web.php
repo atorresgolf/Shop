@@ -92,3 +92,11 @@ Route::get('carrito', function () {
 Route::get('detalle', function () {
     return view('detalleproductos');
 });
+
+Route::get('preguntasfrecuentes', function () {
+    return view('preguntasfrecuentes');
+});
+
+Route::get('contacto', function () {
+    return view('contacto');
+});
