@@ -18,11 +18,7 @@
 
 <body>
     <header>
-        <ul>
-           <li>Home</li>
-           <li>Registracion</li>
-           <li>Login</li>
-        </ul>
+        Registro Producto
     </header>
     <section>
         @yield('principal')
