@@ -100,3 +100,12 @@ Route::get('preguntasfrecuentes', function () {
 Route::get('contacto', function () {
     return view('contacto');
 });
+
+
+
+
+
+
+
+
+Route::get('/detalle/{id}', 'ProductosController@detalle');
