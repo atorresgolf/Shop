@@ -10,10 +10,6 @@
         width: 100%;
     }
     
-    .barra-nav {
-        margin-top: -0.4rem;
-    }
-    
     .inicio:hover {
         background-color: #1e2b38;
         padding: 15px;
