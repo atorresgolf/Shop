@@ -19,7 +19,7 @@ Auth::routes();
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
 
 Route::get('/drivers', function () {
     return view('drivers');
@@ -47,6 +48,7 @@ Route::get('/accesorios', function () {
 Route::get('/academia', function () {
     return view('academia');
 });
+
 Route::get("/usuario", "UsuariosController@usuario")->middleware('auth');
 
 
@@ -74,3 +76,19 @@ Route::post('/agregarproducto', 'ProductosController@agregar');
 
 Route::post('/borrarProducto', 'ProductosController@borrar');
 Route::get('/producto/{id}', 'ProductosController@detalle'); //consulta detalle
+
+route::get('productos', 'productosController@listado');
+
+Route::get('tabla', function () {
+    return view('plantilla_tablas');
+});
+
+
+Route::get('carrito', function () {
+    return view('carrito');
+});
+
+
+Route::get('detalle', function () {
+    return view('detalleproductos');
+});

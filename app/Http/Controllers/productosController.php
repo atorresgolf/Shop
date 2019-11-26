@@ -13,9 +13,13 @@ use App\Producto;
 class productosController extends Controller
 {
     //
-    public function listado()
+    public function listado(Request $req)
     {
+<<<<<<< HEAD
+        $productos = producto::all();
+=======
         $productos = Producto::all();
+>>>>>>> master
 
         // dd($productos);
         $vac = compact('productos');
@@ -97,8 +101,5 @@ class productosController extends Controller
         $producto->delete();
         return redirect('/productos');
     }
-    
-
-
 
 }
