@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/0cb2d9cf91.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <!-- <link rel="stylesheet" href="css/INDEX.css"> -->
     <link rel="stylesheet" href="{{ asset("css/INDEX.css") }}">
     <link rel="stylesheet" href="{{ asset("css/FOOTER.css") }}">
@@ -39,13 +40,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav mx-auto">
                         <!--<li class="nav-item active"></li>-->
-                        <a class="nav-item nav-link mx-auto inicio" href="{{ ('index') }}">INICIO</a>
+                        <!--<a class="nav-item nav-link mx-auto inicio" href="{{ ('index') }}">INICIO</a>-->
                         <a class="nav-item nav-link mx-auto drivers" href="{{ ('drivers') }}">DRIVERS</a>
                         <a class="nav-item nav-link mx-auto hierros" href="{{ ('hierros') }}">HIERROS</a>
                         <a class="nav-item nav-link mx-auto putters" href=" {{ ('putters') }}">PUTTERS</a>
                         <a class=" nav-item nav-link mx-auto accesorios" href="{{ ('accesorios') }}">ACCESORIOS</a>
                         <a class="nav-item nav-link mx-auto academia" href="{{ ('academia') }}">ACADEMIA</a>
-                        <li class="nav-item"></li>
+                        <a class="car" href="{{ ('carrito') }}">
+                            <li class="nav-item"></li>
+                            <div class=carro"><ion-icon name="cart"></ion-icon></div>
                     </div>
                 </div>
 
