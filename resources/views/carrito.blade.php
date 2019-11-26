@@ -1,7 +1,13 @@
 @extends('plantilla')
 
 @section('principal')
-<div class="container z-depth-1 p-5 my-5">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container z-depth-1 p-5">
 
     <!-- Section: Block Content -->
     <section>

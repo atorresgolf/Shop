@@ -1,12 +1,10 @@
                 footer {
                     overflow: hidden;
-                    opacity: 0.5;
                     margin-top: 120px;
                 }
-                
-                footer:hover {
+                /*footer:hover {
                     opacity: 0.9;
-                }
+                }*/
                 
                 footer .redes-sociales {
                     background: #1e2b38;
