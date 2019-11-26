@@ -15,11 +15,7 @@ class productosController extends Controller
     //
     public function listado(Request $req)
     {
-<<<<<<< HEAD
-        $productos = producto::all();
-=======
         $productos = Producto::all();
->>>>>>> master
 
         // dd($productos);
         $vac = compact('productos');
@@ -48,16 +44,18 @@ class productosController extends Controller
     public function agregar(Request $req)
     {
         $reglas = [
-            'nombre' => 'string|min:3|max:45',
-            'descripcion' => 'string|min:0|max:45',
-            'precio' => 'string|min:|max:45',
-            'stock' => 'string|min:0|max:45' ,
+            'nombre' => 'string|min:0|max:100',
+            'descripcion' => 'string|min:0|max:255',
+            'precio' => 'string|min:|max:10',
+            'stock' => 'string|min:0|max:10' ,
             //'id_marca' => 'integer|min:0',
             //'id_proveedor' => 'integer|min:0',
-            'nombre_categoria' => 'string|min:3|max:45',
-            'nombre_marca' => 'string|min:3|max:45',
+            'nombre_categoria' => 'string|min:3|max:100',
+            'nombre_marca' => 'string|min:3|max:100',
 
-            'poster' => 'file'
+            'poster' => 'file',
+            'poster1' => 'file',
+            'poster2' => 'file'
         ];
         $mensajes = [
             'string' => 'El campo :attribute debe ser un texto',
@@ -77,6 +75,18 @@ class productosController extends Controller
         $nombreArchivo = basename($ruta);
 
         $productoNuevo->poster = $nombreArchivo;
+        
+        $ruta1 = $req->file('poster1')->store('public');
+        $nombreArchivo1 = basename($ruta1);
+
+        $productoNuevo->poster1 = $nombreArchivo1;
+
+        $ruta2 = $req->file('poster2')->store('public');
+        $nombreArchivo2 = basename($ruta2);
+
+        $productoNuevo->poster2 = $nombreArchivo2;
+
+
 
         $productoNuevo->nombre = $req['nombre'];
         $productoNuevo->descripcion = $req['descripcion'];
@@ -101,5 +111,16 @@ class productosController extends Controller
         $producto->delete();
         return redirect('/productos');
     }
+    public function detalle($id)
+    {
+
+        //$vac= compact("id");
+
+        $producto = Producto::find($id);
+        $vac = compact('producto');
+
+        return view("detalleproductos", $vac);
+    }
+   
 
 }

@@ -44,10 +44,19 @@
 </div>
 
 </div class='form-group row'>
-<label for="">Foto:</label>
+<label for="">Foto 1:</label>
 <input type="file" name="poster" id="">
 <div>
 
+</div class='form-group row'>
+<label for="">Foto 2:</label>
+<input type="file" name="poster1" id="">
+<div>
+
+    </div class='form-group row'>
+<label for="">Foto 3:</label>
+<input type="file" name="poster2" id="">
+<div>
 
 <div class="form-group row">
     <input type="submit" name="" value="Agregar producto">

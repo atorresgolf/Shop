@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimestampProductos extends Migration
+class CreaColumnasPosterTablaProductos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateTimestampProductos extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->timestamps();
+        Schema::table('productos', function(Blueprint $table){
+        
+            $table->string('poster1', 100);
+            $table->string('poster2', 100);
+
         });
+        //
     }
 
     /**
@@ -25,6 +29,7 @@ class CreateTimestampProductos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('timestamp__productos');
+        Schema::dropIfExists('poster1','poster2');
+        //
     }
 }
