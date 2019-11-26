@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTimesTablaProductos extends Migration
+class AgregarTimeMarcas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CrearTimesTablaProductos extends Migration
      */
     public function up()
     {
-        Schema::table('productos', function (Blueprint $table) {
+        //
+        Schema::table('marcas', function (Blueprint $table) {
             $table->timestamps();
         });
-   
-        //
     }
 
     /**
@@ -27,8 +26,7 @@ class CrearTimesTablaProductos extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('timestamp__marcas');
         //
-        Schema::dropIfExists('timestamp__productos');
-
     }
 }
