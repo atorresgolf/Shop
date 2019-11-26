@@ -13,7 +13,7 @@
                 <div class="card-body" style="height:10rem">
                     <h3 class="card-title">Modelo 2019</h3>
                     <p class="card-text"><br></p>
-                    <a href="#" class="card-link">Ver Detalles</a>
+                    <a href="{{ ('detalle') }}" class="card-link">Ver Detalles</a>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="card-body" style="height:10rem">
                     <h3 class="card-title">Contamos con la vara que necesita</h3>
                     <p class="card-text"></p>
-                    <a href="#" class="card-link">Ver Detalles</a>
+                    <a href="{{ ('detalle') }}" class="card-link">Ver Detalles</a>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="card-body" style="height:10rem">
                     <h3 class="card-title">Hot List 2019</h3>
                     <p class="card-text"><br></p>
-                    <a href="#" class="card-link">Ver Detalles</a>
+                    <a href="{{ ('detalle') }}" class="card-link">Ver Detalles</a>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 <div class="card-body" style="height:10rem">
                     <h3 class="card-title">G410 el nuevo driver de PING</h3>
 
-                    <a href="#" class="card-link">Ver Detalles</a>
+                    <a href="{{ ('detalle') }}" class="card-link">Ver Detalles</a>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="card-body" style="height:10rem">
                     <h3 class="card-title">Facil</h3>
                     <p class="card-text"><br></p>
-                    <a href="#" class="card-link">Ver Detalles</a>
+                    <a href="{{ ('detalle') }}" class="card-link">Ver Detalles</a>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <img src="img/driverm3m4_resultado.jpg" class="card-img-top" alt="...">
                 <div class="card-body" style="height:10rem">
                     <h3 class="card-title">Distintos lofts y varas</h3>
-                    <a href="#" class="card-link">Ver Detalles</a>
+                    <a href="{{ ('detalle') }}" class="card-link">Ver Detalles</a>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>

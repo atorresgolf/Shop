@@ -1,57 +1,3 @@
-<<<<<<< HEAD
-@extends('layouts.app')
-
-@section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <!-- Start your project here-->
-    <!-- Table with panel -->
-    <div class="card card-cascade narrower">
-
-        <!--Card image-->
-        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
-
-            <div>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                    <i class="fas fa-th-large mt-0"></i>
-                </button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                    <i class="fas fa-columns mt-0"></i>
-                </button>
-            </div>
-
-            <a href="" class="white-text mx-3">LISTADO DE PRODUCTOS</a>
-
-            <div>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                    <i class="fas fa-pencil-alt mt-0"></i>
-                </button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                    <i class="far fa-trash-alt mt-0"></i>
-                </button>
-                <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                    <i class="fas fa-info-circle mt-0"></i>
-                </button>
-=======
 @extends('plantilla')
 
 @section('principal')
@@ -71,7 +17,6 @@
                     <p class="card-text"><br></p>
                     <a href="#" class="btn btn-success">Agregar al Carrito</a>
                 </div>
->>>>>>> master
             </div>
 
         </div>
