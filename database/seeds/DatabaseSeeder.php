@@ -11,6 +11,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+         $this->call(SeederBD::class);
+
+        //para hacer un insert
+       /* DB::table('marcas')->insert(
+            [
+                'nombre'=>'Taylor Made'
+            ]
+            );
+        DB::table('marcas')->insert(
+            [
+
+                'nombre' => 'Callaway'
+            ]
+        );
+        DB::table('marcas')->insert(
+            [
+
+                'nombre' => 'Titleist'
+            ]
+        );
+       */
     }
 }
