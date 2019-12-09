@@ -22,7 +22,58 @@ class productosController extends Controller
         return view("productos", $vac);
 
     }
-    public function store(Request $req)
+
+    public function products(Request $req)
+    {
+        $productos = Producto::all();
+
+          // dd($productos);
+        $vac = compact('productos');
+        return view("product", $vac);
+    }
+
+    public function prodcat(Request $req)
+    {
+        $productos = Producto::all();
+
+        // dd($productos);
+        $vac = compact('productos');
+        return view("prod", $vac);//la mando a vista con cat
+    }
+    public function hierro(Request $req)
+    {
+        $productos = Producto::all();
+
+        // dd($productos);
+        $vac = compact('productos');
+        return view("hierro", $vac); //pruebo x categoria anda
+    }
+    public function driver(Request $req)
+    {
+        $productos = Producto::all();
+
+        // dd($productos);
+        $vac = compact('productos');
+        return view("driver", $vac); //pruebo x categoria anda
+    }
+    public function putter(Request $req)
+    {
+        $productos = Producto::all();
+
+        // dd($productos);
+        $vac = compact('productos');
+        return view("putter", $vac); //pruebo x categoria anda
+    }
+    public function accesorio(Request $req)
+    {
+        $productos = Producto::all();
+
+        // dd($productos);
+        $vac = compact('productos');
+        return view("accesorio", $vac); //pruebo x categoria anda
+    }
+   
+   /* public function store(Request $req)
     {
         $producto = new Producto();
         $producto->nombre = $req['nombre'];
@@ -39,7 +90,7 @@ class productosController extends Controller
         $producto->save();
 
         return redirect('/productos');
-    }
+    }*/
 
     public function agregar(Request $req)
     {
@@ -121,6 +172,18 @@ class productosController extends Controller
 
         return view("detalleproductos", $vac);
     }
-   
+
+
+    public function search()
+    {
+        $buscar = $_GET['texto'];
+
+        $productos = Producto::where('nombre', 'like', "%$buscar%")
+            ->orwhere('descripcion', 'like', "%$buscar%")->get();
+
+        $vac = compact('productos');
+
+        return view('productos', $vac);
+    }
 
 }

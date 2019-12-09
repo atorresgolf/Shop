@@ -59,20 +59,20 @@ Route::get('/header', 'IndexController@header')->name('header');
 
 Route::get('/productos', 'ProductosController@listado');
 
-Route::get('/agregarproducto', function () {
-    return view('agregarproducto');
-});
+//Route::get('/agregarproducto', function () {
+//    return view('agregarproducto');
+//});
 
-Route::post('/agregarproductos', 'ProductosController@agregar');
-Route::get('/agregarproductos', function () {
-    return view('agregarproductos');
-});
-Route::post('/agregarproductos1', 'ProductosController@agregar');
+//Route::post('/agregarproductos', 'ProductosController@agregar');
+//Route::get('/agregarproductos', function () {
+//   return view('agregarproductos');
+//});
+Route::post('/agregarproductos1', 'ProductosController@agregar');//funciona
 Route::get('/agregarproductos1', function () {
-    return view('agregarproductos1');
-});
+   return view('agregarproductos1');
+}); //funciona
 
-Route::post('/agregarproducto', 'ProductosController@agregar');
+//Route::post('/agregarproducto', 'ProductosController@agregar');
 
 Route::post('/borrarProducto', 'ProductosController@borrar');
 Route::get('/producto/{id}', 'ProductosController@detalle'); //consulta detalle
@@ -109,3 +109,28 @@ Route::get('contacto', function () {
 
 
 Route::get('/detalle/{id}', 'ProductosController@detalle');
+
+Route::get("/usuario/{id}", "UsuariosController@perfil");
+Route::get("/perfilusuario", "UsuariosController@perfilusuario");
+
+//Route::get("/usuario/{id}/edit", "UsuariosController@edit");
+Route::post("/perfilusuario", "UsuariosController@update");
+
+Route::get('profile', 'UserController@profile');//funciona para subir foto perfil
+Route::post('profile', 'UserController@update_avatar'); //funciona cambiar foto
+
+
+Route::get('prod', 'productosController@prodcat');// funciona general
+
+
+
+Route::get('/categoria/{id}', 'categoriasController@detalle');//funciona para redireccionar
+//hierro, driver, putter
+
+Route::get('prodhierro', 'productosController@prodhierro');// funciona general
+
+Route::get('/hierro', 'productosController@hierro');//funciona
+
+Route::get('/driver', 'productosController@driver');//funciona
+Route::get('/putter', 'productosController@putter');//funciona
+Route::get('/accesorio', 'productosController@accesorio');//funciona
