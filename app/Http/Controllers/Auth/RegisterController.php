@@ -50,9 +50,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'surname'=>['required', 'string', 'min:6'],
+            'surname'=>['required', 'string', 'min:1'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'avatar' => 'dimensions:min_width=100,min_height=200|max:5000',
         ]);
     }
 
@@ -62,13 +63,35 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+     /* protected function create(array $data)
     {
+        $request = app('request');
+        if ($request->hasfile('avatar')) {
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('/public' . $filename));
+        }
         return User::create([
             'name' => $data['name'],
             'surname'=>$data['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => $filename,
+            
+        
+        ]);
+    }*/
+  protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'surname' => $data['surname'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
     }
+    
+
 }
+
+

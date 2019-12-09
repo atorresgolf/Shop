@@ -40,18 +40,58 @@
                     <div class="navbar-nav mx-auto">
                         <!--<li class="nav-item active"></li>-->
                         <a class="nav-item nav-link mx-auto inicio" href="{{ ('index') }}">INICIO</a>
-                        <a class="nav-item nav-link mx-auto drivers" href="{{ ('drivers') }}">DRIVERS</a>
-                        <a class="nav-item nav-link mx-auto hierros" href="{{ ('hierros') }}">HIERROS</a>
-                        <a class="nav-item nav-link mx-auto putters" href=" {{ ('putters') }}">PUTTERS</a>
-                        <a class=" nav-item nav-link mx-auto accesorios" href="{{ ('accesorios') }}">ACCESORIOS</a>
+                        <a class="nav-item nav-link mx-auto drivers" href="{{ ('driver') }}">DRIVERS</a>
+                        <a class="nav-item nav-link mx-auto hierros" href="{{ ('hierro') }}">HIERROS</a>
+                        <a class="nav-item nav-link mx-auto putters" href=" {{ ('putter') }}">PUTTERS</a>
+                        <a class=" nav-item nav-link mx-auto accesorios" href="{{ ('accesorio') }}">ACCESORIOS</a>
                         <a class="nav-item nav-link mx-auto academia" href="{{ ('academia') }}">ACADEMIA</a>
                         <li class="nav-item"></li>
                     </div>
                 </div>
 
                 <div class="navbar-nav d-flex flex-row justify-contents-center mx-auto">
+                    @if( Auth::user()) 
+                    <img width="40" height="40" src="/storage/avatars/{{ auth()->user()->avatar  }}">
+
+                    {{--
+                      <a class="btn btn-light btn-sm mr-3" href= "{{ ('perfilusuario') }}" role="button">{{ auth()->user()->name }}</a>
+                    <a class="btn btn-light btn-sm mr-3" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                    --}}
+                    <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/perfilusuario">
+                                        Perfil Usuario
+                                    </a>
+                                    <a class="dropdown-item" href="/profile">
+                                        Subir Foto
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                      @else
                     <a class="btn btn-light btn-sm mr-3" href='{{ ('register') }}' role="button">Creá tu cuenta</a>
                     <a class="btn btn-light btn-sm mr-3" href='{{ ('login') }}' role="button">Ingresá</a>
+                
+                    @endif
                 </div>
             </nav>
         </div>

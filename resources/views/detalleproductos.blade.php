@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('plantilla')
 
-@section('content')
+@section('principal')
 
 <div class="container my-5 py-5 z-depth-1">
 
