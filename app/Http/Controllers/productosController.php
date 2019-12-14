@@ -17,7 +17,7 @@ class productosController extends Controller
     {
         $productos = Producto::all();
 
-        // dd($productos);
+        //dd($productos);
         $vac = compact('productos');
         return view("productos", $vac);
 
