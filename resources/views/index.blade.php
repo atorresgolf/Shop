@@ -27,6 +27,8 @@ Index
                 </div>
             </a>
         </div>
+
+
         <div class="imagen">
             <a href="{{ ('putters') }}" class="card-link">
                 <img src="/img/puters-fondo1.jpg" alt="" ;>

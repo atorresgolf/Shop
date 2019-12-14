@@ -4,6 +4,8 @@
 
 use App\Http\Controllers\ProductosController;
 use Illuminate\Support\Facades\Route;
+
+
 Auth::routes();
 Auth::routes(['register' => false]);
 Auth::routes();
@@ -22,7 +24,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-
+Route::resource('productos','productosController');
+/*-----RUTAS PARA SOLAMENTE USAR DEL MODELO EnCarritoController, store y destroy-----*/
+Route::resource('EnCarrito', 'EnCarritoController', [
+    'only' => ['store', 'destroy']
+]);
 
 Route::get('/index', function () {
     return view('index');
@@ -100,3 +106,5 @@ Route::get('preguntasfrecuentes', function () {
 Route::get('contacto', function () {
     return view('contacto');
 });
+
+//route::get('index', 'CarritoController@carrito');

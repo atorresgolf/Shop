@@ -48,7 +48,9 @@
                         <a class="nav-item nav-link mx-auto academia" href="{{ ('academia') }}">ACADEMIA</a>
                         <a class="car" href="{{ ('carrito') }}">
                             <li class="nav-item"></li>
-                            <div class=carro"><ion-icon name="cart"></ion-icon></div>
+                            <div class=carro">
+                                <ion-icon name="cart"></ion-icon>{{ $carrito->cantidadProducto() }}
+                            </div>
                     </div>
                 </div>
 
