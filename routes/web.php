@@ -24,9 +24,9 @@ Route::get('/', function () {
 
 
 
-Route::get('/index', function () {
-    return view('index');
-});
+//Route::get('/index', function () {
+ //   return view('index');
+//});
 
 
 Route::get('/drivers', function () {
@@ -67,10 +67,6 @@ Route::get('/productos', 'ProductosController@listado');
 //Route::get('/agregarproductos', function () {
 //   return view('agregarproductos');
 //});
-Route::post('/agregarproductos1', 'ProductosController@agregar');//funciona
-Route::get('/agregarproductos1', function () {
-   return view('agregarproductos1');
-}); //funciona
 
 //Route::post('/agregarproducto', 'ProductosController@agregar');
 
@@ -133,4 +129,24 @@ Route::get('/hierro', 'productosController@hierro');//funciona
 
 Route::get('/driver', 'productosController@driver');//funciona
 Route::get('/putter', 'productosController@putter');//funciona
-Route::get('/accesorio', 'productosController@accesorio');//funciona
+Route::get('/accesorio', 'productosController@accesorio'); //funciona
+
+//Route::get('index', 'CarritoController@index'); //ruta con carrito
+
+
+Route::get("/altaproductos", function(){
+    return view('altaProductos');
+});
+//Route::get("/usuario/{id}/edit", "UsuariosController@edit");
+Route::post("/altaproductos", "productosController@agregar");
+
+Route::post('/agregarproductos1', 'ProductosController@agregar'); //funciona
+Route::get('/agregarproductos1', function () {
+    return view('agregarproductos1');
+}); //funciona
+
+Route::get('/modifProducto/{id}', function(){
+    return view ('modifProducto');
+});
+Route::post('modifProducto/{id}', 'ProductosControlle@update');
+

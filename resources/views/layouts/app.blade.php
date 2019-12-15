@@ -62,10 +62,14 @@
                         </li>
                         @endif
                         @else
+                        
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                               <img width="20px" height="20px" src="{{ asset('uploads/avatars/'.Auth::user()->avatar) }}">
-    ...
+                                 @if(auth()->user()->avatar != 'user.jpg')
+                                 <img width="40" height="40" src="/storage/avatars/{{ auth()->user()->avatar  }}">
+                                  @endif
+                  
+                                    
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -73,9 +77,9 @@
                                     <a class="dropdown-item" href="/perfilusuario">
                                         Perfil Usuario
                                     </a>
-                                    <a class="dropdown-item" href="/profile">
+                                    {{--<a class="dropdown-item" href="/profile">
                                         Subir Foto
-                                    </a>
+                                    </a>--}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

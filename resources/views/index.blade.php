@@ -10,7 +10,7 @@ Index
     <!--<h1>VISITA NUESTRAS CATEGORIAS</h1>-->
     <div class="contenedor-imagenes">
         <div class="imagen">
-            <a href="{{ ('drivers') }}" class="card-link">
+            <a href="/categoria/1" class="card-link">
                 <img src="{{asset('img/drivers-mujer.jpg')}}" alt="" ;>
                 <div class="inscripcion">
                     <h2></h2>
@@ -18,17 +18,18 @@ Index
                 </div>
             </a>
         </div>
+       
         <div class="imagen">
-            <a href="{{ ('hierros') }}" class="card-link">
+            <a href="/categoria/2" class="card-link">
                 <img src="/img/drivers-fondo2.jpg" alt="" ;>
                 <div class=" inscripcion">
                     <h2></h2>
-                    <p class="card-text">ELEJI EL HIERRO QUE SE ADAPTE A TU ESTILO DE JUEGO</p>
+                    <p class="card-text">ELEGI EL HIERRO QUE SE ADAPTE A TU ESTILO DE JUEGO</p>
                 </div>
             </a>
         </div>
         <div class="imagen">
-            <a href="{{ ('putters') }}" class="card-link">
+            <a href="/categoria/3" class="card-link">
                 <img src="/img/puters-fondo1.jpg" alt="" ;>
                 <div class="inscripcion">
                     <h2></h2>
@@ -37,7 +38,7 @@ Index
             </a>
         </div>
         <div class="imagen">
-            <a href="{{ ('accesorios') }}" class="card-link">
+            <a href="/categoria/4" class="card-link">
                 <img src="/img/accesorios-fondo.jpg" alt="" ;>
                 <div class="inscripcion">
                     <h2>ACCESORIOS</h2>

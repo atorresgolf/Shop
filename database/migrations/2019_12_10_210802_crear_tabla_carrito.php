@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAvatarTablaUsers extends Migration
+class CrearTablaCarrito extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateAvatarTablaUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar')->default('user.jpg');
-           
-        });
+        Schema::create('carritos', function(Blueprint $table)
+    {
+        $table->increments('id');
+        $table->string('status');
+        $table->timestamps();
+
+
+    });
+        //
     }
 
     /**
@@ -26,8 +31,7 @@ class CreateAvatarTablaUsers extends Migration
      */
     public function down()
     {
-
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('avatar');
-        });    }
+       Schema::drop('carritos');
+        //
+    }
 }
