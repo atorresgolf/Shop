@@ -129,11 +129,7 @@
                         <!-- Card body -->
                         <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3" data-parent="#accordionEx">
                             <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                                3 wolf moon officia aute,
-                                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                moon
-                                tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                Envios a todo el pais
                             </div>
                         </div>
                     </div>
@@ -199,12 +195,21 @@
                             </div>
                         </div>
                         @else 
-                        .      
+                              
                         @endif
                         <div class="row mt-3">
                             <div class="col-md-12 text-center text-md-left text-md-right">
                                 <button class="btn btn-primary btn-rounded">
                                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Agregar carrito</button>
+                                    @if(Auth::user())
+                                         @if(Auth::user()->email == 'atorresgolf@gmail.com' )
+                                            <button class="btn btn-primary btn-rounded">
+                                            <a class="fas fa-cart-plus mr-2"  href="/modifProducto/{{$producto->id}}"></a> Modificar</button>
+                                            <a class="btn btn-light btn-sm mr-3" href='modifProducto/{{$producto->id}}' role="button">Modificar Producto</a>
+
+                                            @endif
+                                    @endif
+                           
                             </div>
                         </div>
                     </div>

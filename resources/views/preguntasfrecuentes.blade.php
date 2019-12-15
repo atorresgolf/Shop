@@ -1,120 +1,229 @@
 @extends('plantilla')
 
+ 
+
 @section('principal')
 
+ 
 
 <!--Section: Content-->
-<section>
-    <div class="container">
-        <h6 class="font-weight-normal text-uppercase font-small grey-text mb-4 text-center">FAQ</h6>
-        <!-- Section heading -->
-        <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Preguntas Frecuentes</h3>
-        <hr class="w-header">
-        <!-- Section description -->
-        <p class="lead text-muted mx-auto mt-4 pt-2 mb-5 text-center">Got a question? We've got answers. If you have some other questions, see our support center.</p>
 
-        <div class="row">
-            <div class="col-md-12 col-lg-10 mx-auto mb-5">
+<div class="container-fluid">
 
-                <!--Accordion wrapper-->
-                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+    <div class="row justify-content-center">
 
-                    <!-- Accordion card -->
-                    <div class="card border-top border-bottom-0 border-left border-right border-light">
+        <div class="col-ms-12 col-md-12 col-lg-12">
 
-                        <!-- Card header -->
-                        <div class="card-header border-bottom border-light" role="tab" id="headingOne1">
-                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
-                                <h5 class="black-text font-weight-normal mb-0">
-                                    Is this a secure site for purchases? <i class="fas fa-angle-down rotate-icon"></i>
-                                </h5>
-                            </a>
-                        </div>
+            <div class="card mx-auto" style="margin-top:9rem">
 
-                        <!-- Card body -->
-                        <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
-                            <div class="card-body">
-                                Absolutely! We work with top payment companies which guarantees your safety and security. All billing information is stored on our payment processing partner which has the most stringent level of certification available in the payments industry.
+                <h5 class="font-weight-normal text-uppercase font-small grey-text mb-4 text-center mt-2">F A Q</h5>
+
+                <!-- Section heading -->
+
+                <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Preguntas Frecuentes</h3>
+
+                <hr class="w-header mx-auto" style="width:70%">
+
+                <!-- Section description -->
+
+                <p class="lead text-muted mx-auto mt-4 pt-2 mb-5 text-center">Tenes alguna pregunta? Tenemos la respuesta. Si Ud. tiene otra duda, visite nuestro centro de atencion.</p>
+
+                <hr class="w-header mx-auto" style="width:70%">
+
+                <div class="row">
+
+                    <div class="col-ms-12 col-md-12 col-lg-12 mb-5">
+
+ 
+
+                        <!--Accordion wrapper-->
+
+                        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+ 
+
+                            <!-- Accordion card -->
+
+ 
+
+                            <!-- Card header -->
+
+                            <div class="card-header border-bottom border-light mx-auto" style=" width:70%" role="tab" id="headingOne1">
+
+                                <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+
+                                    <h5 class="black-text font-weight-normal mb-0">
+
+                                        Es un sitio seguro para comprar? <i class="fas fa-angle-down rotate-icon"></i>
+
+                                    </h5>
+
+                                </a>
+
                             </div>
+
+ 
+
+                            <!-- Card body -->
+
+                            <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+
+                                <div class="card-body">
+
+                                    Totalmente! Trabajamos con los mejores metodos de pago lo que le garantizan seguridad.
+
+                                </div>
+
+                            </div>
+
                         </div>
 
-                    </div>
-                    <!-- Accordion card -->
+                        <hr class="w-header mx-auto" style="width:70%">
 
-                    <!-- Accordion card -->
-                    <div class="card border-bottom-0 border-left border-right border-light">
+                        <!-- Accordion card -->
+
+ 
+
+                        <!-- Accordion card -->
+
+ 
 
                         <!-- Card header -->
+
                         <div class="card-header border-bottom border-light" role="tab" id="headingTwo2">
+
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+
                                 <h5 class="black-text font-weight-normal mb-0">
-                                    How long are your contracts? <i class="fas fa-angle-down rotate-icon"></i>
+
+                                    Tiene vencimiento mi suscripcion? <i class="fas fa-angle-down rotate-icon"></i>
+
                                 </h5>
+
                             </a>
+
                         </div>
 
+ 
+
                         <!-- Card body -->
+
                         <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2" data-parent="#accordionEx">
+
                             <div class="card-body">
-                                Currently, we only offer monthly subscription. You can upgrade or cancel your monthly account at any time with no further obligation.
+
+                                La suscripcion tanto a nuestras ofertas como a nuestro sitio web son gratuitos.
+
                             </div>
+
                         </div>
 
-                    </div>
-                    <!-- Accordion card -->
+                        <hr class="w-header mx-auto" style="width:70%">
 
-                    <!-- Accordion card -->
-                    <div class="card border-bottom-0 border-left border-right border-light">
+                        <!-- Accordion card -->
+
+ 
+
+                        <!-- Accordion card -->
+
+ 
 
                         <!-- Card header -->
+
                         <div class="card-header border-bottom border-light" role="tab" id="headingThree3">
+
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+
                                 <h5 class="black-text font-weight-normal mb-0">
-                                    Can I cancel my subscription? <i class="fas fa-angle-down rotate-icon"></i>
+
+                                    Puedo canceclar la suscripcion de ofertas? <i class="fas fa-angle-down rotate-icon"></i>
+
                                 </h5>
+
                             </a>
+
                         </div>
+
+ 
 
                         <!-- Card body -->
+
                         <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3" data-parent="#accordionEx">
+
                             <div class="card-body">
-                                You can cancel your subscription anytime in your account. Once the subscription is cancelled, you will not be charged next month. You will continue to have access to your account until your current subscription expires.
+
+                                Puede cancelar la suscripcion a nuestras ofertas, y su cuenta seguira activa para poder comprar.
+
                             </div>
+
                         </div>
 
-                    </div>
-                    <!-- Accordion card -->
+                        <hr class="w-header mx-auto" style="width:70%">
 
-                    <!-- Accordion card -->
-                    <div class="card border-left border-right border-light">
+                        <!-- Accordion card -->
+
+ 
+
+                        <!-- Accordion card -->
+
+ 
 
                         <!-- Card header -->
+
                         <div class="card-header border-bottom border-light" role="tab" id="headingThree4">
+
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
+
                                 <h5 class="black-text font-weight-normal mb-0">
-                                    Can I request refund? <i class="fas fa-angle-down rotate-icon"></i>
+
+                                    Aceptan devoluciones? <i class="fas fa-angle-down rotate-icon"></i>
+
                                 </h5>
+
                             </a>
+
                         </div>
+
+ 
 
                         <!-- Card body -->
+
                         <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4" data-parent="#accordionEx">
+
                             <div class="card-body">
-                                Unfortunately, not. We do not issue full or partial refunds for any reason.
+
+                                No se aceptan devoluciones.
+
                             </div>
+
                         </div>
 
+ 
+
                     </div>
+
                     <!-- Accordion card -->
+
+ 
 
                 </div>
+
                 <!-- Accordion wrapper -->
 
+ 
+
             </div>
+
         </div>
 
-</section>
-
+    </div>
 
 </div>
+
+</div>
+
+</div>
+
 @endsection
+
+ 

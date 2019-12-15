@@ -50,7 +50,7 @@ public function usuario()
        if($req->avatar)
        {
             $req->validate([
-                'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
                 
             ]);
             $avatarName = $user->id . '_avatar' . time() . '.' . request()->avatar->getClientOriginalExtension();

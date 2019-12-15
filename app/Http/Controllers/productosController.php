@@ -12,6 +12,7 @@ use App\Producto;
 
 class productosController extends Controller
 {
+    
     //
     public function listado(Request $req)
     {
@@ -153,6 +154,84 @@ class productosController extends Controller
         return redirect('/productos');
     }
 
+
+    public function update(Request $req, $id)
+    {
+        $producto = Producto::find($id);
+
+        $reglas = [
+            'nombre' => 'string|min:0|max:100',
+            'descripcion' => 'string|min:0|max:255',
+            'precio' => 'string|min:|max:10',
+            'stock' => 'string|min:0|max:10',
+            //'id_marca' => 'integer|min:0',
+            //'id_proveedor' => 'integer|min:0',
+            'nombre_categoria' => 'string|min:3|max:100',
+            'nombre_marca' => 'string|min:3|max:100',
+
+            'poster' => 'file',
+            'poster1' => 'file',
+            'poster2' => 'file'
+        ];
+        $mensajes = [
+            'string' => 'El campo :attribute debe ser un texto',
+            'min' => 'El campo :attribute tiene un minimo de :min',
+            'max' => 'El campo :attribute tiene un maximo de :max',
+            'date' => 'El campo :attribute debe ser fecha',
+            'numeric' => 'El campo :attribute debe ser un numero',
+            'integer' => 'El campo :attribute debe ser un numero entero',
+            'unique' => 'El campo :attribute se encuentra repetido'
+        ];
+
+        $this->validate($req, $reglas, $mensajes);
+
+
+        $producto->nombre = $req['nombre'];
+        $producto->descripcion = $req['descripcion'];
+        $producto->precio = $req['precio'];
+        $producto->stock = $req['stock'];
+        $producto->nombre_categoria = $req['nombre_categoria'];
+        $producto->nombre_marca = $req['nombre_marca'];
+        
+        if ($req->poster) {
+            $req->validate([
+                'poster' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+
+            ]);
+            $ruta = $req->file('poster')->store('public');
+            $nombreArchivo = basename($ruta);
+
+            $producto->poster = $nombreArchivo;
+
+        }
+        if ($req->poster1) {
+            $req->validate([
+                'poster1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+
+            ]);
+            $ruta1 = $req->file('poster1')->store('public');
+            $nombreArchivo1 = basename($ruta1);
+
+            $producto->poster1 = $nombreArchivo1;
+        }
+        if ($req->poster2) {
+            $req->validate([
+                'poster2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+
+            ]);
+            $ruta2 = $req->file('poster2')->store('public');
+            $nombreArchivo2 = basename($ruta2);
+
+            $producto->poster2 = $nombreArchivo2;
+        }
+
+        $producto->save();
+
+        return redirect('/productos');
+
+
+    }
+    
     public function borrar(Request $form)
     {
         $id = $form['id'];

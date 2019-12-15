@@ -9,6 +9,12 @@
     color: #18EB8E;
 }
 
+ion-icon {
+    font-size: 40px;
+    color: white;
+    margin-left: 15rem;
+}
+
 .linea1 {
     border-top: 5px solid #18EB8E;
     margin-bottom: 40px;
@@ -62,7 +68,7 @@
 }
 
 .inscripcion p {
-    color: rgb(96, 248, 1);
+    color:black;
     font-weight: 800;
     font-size: 15px;
     position: absolute;

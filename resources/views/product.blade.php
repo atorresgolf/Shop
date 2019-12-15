@@ -3,13 +3,14 @@
 @section('principal')
 
 <div class="container" style="position: relative; left: 0px; top: 105px;">
-   <div class=" card-header text-white bg-dark" style="width:24rem">
+   <div class=" card-header text-white bg-dark mx-auto text-center text-uppercase" style="width:24rem">
                            {{$categoria->nombre}}
-     </div>
-   
+     </div> 
+     
             <div class="row">
-                <div class="col-md-auto col-lg-4">
              @foreach($categoria->productos as $producto)
+
+                <div class="col-md-auto col-lg-4">
 
                     <div class="card mt-5" style="width:18rem">
                         <div class=" card-header text-white bg-dark" style="width:100%">
@@ -21,14 +22,16 @@
                         <p class="card-text"></p>
                         <a href="/detalle/{{$producto->id}}" class="card-link">Ver Detalles</a>
                         <a href="/carrito" class="btn btn-success">Agregar al Carrito</a>
-                </div>
+                    </div>
             </div>
+        </div>
             
-    
-         
+           
          @endforeach
     </div>
-        
+</div>
+</div>
+       
       
     
 
