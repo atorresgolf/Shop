@@ -145,8 +145,10 @@ Route::get('/agregarproductos1', function () {
     return view('agregarproductos1');
 }); //funciona
 
-Route::get('/modifProducto/{id}', function(){
-    return view ('modifProducto');
-});
+Route::get('/modifProducto', 'productosController@modificar');//funciona
+
+//Route::get('/modifProducto/{id}', function(){
+ //   return view ('modifProducto');
+//});
 Route::post('modifProducto/{id}', 'ProductosControlle@update');
 
