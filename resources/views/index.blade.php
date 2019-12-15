@@ -28,6 +28,8 @@ Index
                 </div>
             </a>
         </div>
+
+
         <div class="imagen">
             <a href="/categoria/3" class="card-link">
                 <img src="/img/puters-fondo1.jpg" alt="" ;>

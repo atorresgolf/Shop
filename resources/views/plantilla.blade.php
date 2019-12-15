@@ -48,10 +48,11 @@
                         <a class=" nav-item nav-link mx-auto accesorios" href="/categoria/4">ACCESORIOS</a>
                        
                         <a class="nav-item nav-link mx-auto academia" href="{{ ('academia') }}">ACADEMIA</a>
-                        <a class="car" href="{{'carrito'}}"></a>
-                        <div class="carro">
-                            <ion-icon name="cart"></ion-icon>
-                        </div>
+                        <a class="car" href="{{ ('carrito') }}">
+                            <li class="nav-item"></li>
+                            <div class=carro">
+                                <ion-icon name="cart"></ion-icon>{{ $carrito->cantidadProducto() }}
+                            </div>
                     </div>
                 </div>
 

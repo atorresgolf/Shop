@@ -4,6 +4,8 @@
 
 use App\Http\Controllers\ProductosController;
 use Illuminate\Support\Facades\Route;
+
+
 Auth::routes();
 Auth::routes(['register' => false]);
 Auth::routes();
@@ -22,11 +24,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::resource('productos','productosController');
+/*-----RUTAS PARA SOLAMENTE USAR DEL MODELO EnCarritoController, store y destroy-----*/
+Route::resource('EnCarrito', 'EnCarritoController', [
+    'only' => ['store', 'destroy']
+]);
 
-
-//Route::get('/index', function () {
- //   return view('index');
-//});
+Route::get('/index', function () {
+    return view('index');
+});
 
 
 Route::get('/drivers', function () {
@@ -96,57 +102,3 @@ Route::get('preguntasfrecuentes', function () {
 Route::get('contacto', function () {
     return view('contacto');
 });
-
-
-
-
-
-
-
-
-Route::get('/detalle/{id}', 'ProductosController@detalle');
-
-Route::get("/usuario/{id}", "UsuariosController@perfil");
-Route::get("/perfilusuario", "UsuariosController@perfilusuario");
-
-//Route::get("/usuario/{id}/edit", "UsuariosController@edit");
-Route::post("/perfilusuario", "UsuariosController@update");
-
-Route::get('profile', 'UserController@profile');//funciona para subir foto perfil
-Route::post('profile', 'UserController@update_avatar'); //funciona cambiar foto
-
-
-Route::get('prod', 'productosController@prodcat');// funciona general
-
-
-
-Route::get('/categoria/{id}', 'categoriasController@detalle');//funciona para redireccionar
-//hierro, driver, putter
-
-Route::get('prodhierro', 'productosController@prodhierro');// funciona general
-
-Route::get('/hierro', 'productosController@hierro');//funciona
-
-Route::get('/driver', 'productosController@driver');//funciona
-Route::get('/putter', 'productosController@putter');//funciona
-Route::get('/accesorio', 'productosController@accesorio'); //funciona
-
-//Route::get('index', 'CarritoController@index'); //ruta con carrito
-
-
-Route::get("/altaproductos", function(){
-    return view('altaProductos');
-});
-//Route::get("/usuario/{id}/edit", "UsuariosController@edit");
-Route::post("/altaproductos", "productosController@agregar");
-
-Route::post('/agregarproductos1', 'ProductosController@agregar'); //funciona
-Route::get('/agregarproductos1', function () {
-    return view('agregarproductos1');
-}); //funciona
-
-Route::get('/modifProducto/{id}', function(){
-    return view ('modifProducto');
-});
-Route::post('modifProducto/{id}', 'ProductosControlle@update');
-
