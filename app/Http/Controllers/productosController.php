@@ -154,7 +154,14 @@ class productosController extends Controller
         return redirect('/productos');
     }
 
+    public function modificar(Request $req)
+    {
+        $productos = Producto::all();
 
+        // dd($productos);
+        $vac = compact('productos');
+        return view("modifProducto", $vac); //pruebo x categoria anda
+    }
     public function update(Request $req, $id)
     {
         $producto = Producto::find($id);
