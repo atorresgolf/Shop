@@ -98,4 +98,13 @@ class productosController extends Controller
         return redirect('/productos');
     }
 
+    public function driver(Request $req)
+    {
+        $productos = Producto::all();
+
+        // dd($productos);
+        $vac = compact('productos');
+        return view("driver", $vac); //pruebo x categoria anda
+    }
+
 }

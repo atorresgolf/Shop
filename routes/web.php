@@ -24,6 +24,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+route::get('/carrito', 'CarritoController@encarrito');
+
 Route::resource('productos','productosController');
 /*-----RUTAS PARA SOLAMENTE USAR DEL MODELO EnCarritoController, store y destroy-----*/
 Route::resource('EnCarrito', 'EnCarritoController', [
@@ -90,11 +92,6 @@ Route::get('tabla', function () {
 });
 
 
-Route::get('carrito', function () {
-    return view('carrito');
-});
-
-
 Route::get('detalle', function () {
     return view('detalleproductos');
 });
@@ -108,3 +105,6 @@ Route::get('contacto', function () {
 });
 
 //route::get('index', 'CarritoController@carrito');
+
+Route::get('/driver', 'productosController@driver');//funciona
+
