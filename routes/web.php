@@ -158,3 +158,5 @@ Route::get('/modifProducto', 'productosController@modificar');//funciona
 //});
 Route::post('modifProducto/{id}', 'ProductosControlle@update');
 
+Route::PUT('modificaproducto/{id}', 'productosController@modificar');
+

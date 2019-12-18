@@ -38,6 +38,7 @@ class CarritoProvider extends ServiceProvider
             Session()->put('carrito_id', $carrito->id);
             //Session()->Flash('carrito', $carrito);
             $view->with('carrito', $carrito);
+
         });
     }
 }
