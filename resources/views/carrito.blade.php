@@ -1,16 +1,15 @@
 @extends('plantilla')
 
 @section('principal')
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container z-depth-1 p-5">
+.
+<div class="container z-depth-1 p-5" style="margin-top:8rem">
 
     <!-- Section: Block Content -->
     <section>
+
+        <div class="container-fluid">
+            <h1 class=" mx-auto text-center" style="margin-bottom:2rem">MI CARRITO</h1>
+        </div>
 
         <!-- Shopping Cart table -->
         <div class="table-responsive">
@@ -19,20 +18,20 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th class="font-weight-bold">
+                        <th class="font-weight-bold text-center">
                             <strong>Producto</strong>
                         </th>
-                        <th class="font-weight-bold">
-                            <strong>Color</strong>
+                        <th class="font-weight-bold text-center">
+                            <strong>Descripcion</strong>
                         </th>
                         <th></th>
-                        <th class="font-weight-bold">
+                        <th class="font-weight-bold text-center">
                             <strong>Precio</strong>
                         </th>
-                        <th class="font-weight-bold">
-                            <strong>Cant</strong>
+                        <th class="font-weight-bold text-center">
+                            <strong>Cantidad</strong>
                         </th>
-                        <th class="font-weight-bold">
+                        <th class="font-weight-bold text-center">
                             <strong>Importe</strong>
                         </th>
                         <th></th>
@@ -42,108 +41,52 @@
                 <!-- Table body -->
                 <tbody>
                     <!-- First row -->
+                    @foreach($productos as $producto)
                     <tr>
                         <th scope="row">
-                            <img src="img/putteroddy.jpg" alt="" class="img-fluid z-depth-0">
+                            <img src="" alt="" class="img-fluid z-depth-0">
+                            <!--IMAGEN PRODUCTO-->
                         </th>
                         <td>
                             <h5 class="mt-3">
-                                <strong>Putter</strong>
+                                <strong>{{ $producto->nombre }}</strong>
+                                <!--NOMBRE DEL PRODUCTO-->
                             </h5>
-                            <p class="text-muted">No se la marca</p>
+                            <p class="text-muted">{{ $producto->nombre_marca }}</p>
+                            <!--MARCA PRODUCTO-->
                         </td>
-                        <td>White</td>
+                        <td>{{ $producto->descripcion }}</td>
+                        <!--DESCRIPCION PRODUCTO-->
                         <td></td>
-                        <td>$800</td>
-                        <td class="text-center text-md-left">
-                            <span class="qty">1 </span>
+                        <td>$ {{ $producto->precio }}</td>
+                        <!--PRECIO PRODUCTO-->
+                        <td class="text-center text-xs-left">
+                            <span class="qty">1</span>
+                            <!--CANTIDAD DE PRODUCTOS-->
                             <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                                <label class="btn btn-sm btn-primary btn-rounded">
+                                <label class="btn btn-sm btn-success btn-rounded">
                                     <input type="radio" name="options" id="option1">&mdash;
                                 </label>
-                                <label class="btn btn-sm btn-primary btn-rounded">
+                                <label class="btn btn-sm btn-success btn-rounded">
                                     <input type="radio" name="options" id="option2">+
                                 </label>
                             </div>
                         </td>
-                        <td class="font-weight-bold">
-                            <strong>$800</strong>
+                        <td class="font-weight-bold text-center text-xs-left">
+                            <strong>$&nbsp;{{ $producto->precio }}</strong>
+                            <!--TOTAL DEL PRODUCTO-->
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
-                            </button>
+                            <form method="POST" action="{{ url('/EnCarrito/'.$producto->id) }}">
+                           {{ csrf_field() }}
+                           {{ method_field('DELETE') }}  
+                                <button type="submit" onclick="return confirm('¿Desea eliminar el articulo?')" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Remove item">X
+                                </button>
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                     <!-- First row -->
-                    <!-- Second row -->
-                    <tr>
-                        <th scope="row">
-                            <img src="img/driverepic_resultado.jpg" alt="" class="img-fluid z-depth-0">
-                        </th>
-                        <td>
-                            <h5 class="mt-3">
-                                <strong>Driver</strong>
-                            </h5>
-                            <p class="text-muted">Callaway Epic</p>
-                        </td>
-                        <td>Red</td>
-                        <td></td>
-                        <td>$200</td>
-                        <td class="text-center text-md-left">
-                            <span class="qty">3 </span>
-                            <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                                <label class="btn btn-sm btn-primary btn-rounded">
-                                    <input type="radio" name="options" id="option1">&mdash;
-                                </label>
-                                <label class="btn btn-sm btn-primary btn-rounded">
-                                    <input type="radio" name="options" id="option2">+
-                                </label>
-                            </div>
-                        </td>
-                        <td class="font-weight-bold">
-                            <strong>$600</strong>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
-                            </button>
-                        </td>
-                    </tr>
-                    <!-- Second row -->
-                    <!-- Third row -->
-                    <tr>
-                        <th scope="row">
-                            <img src="img/gorrastit_resultado.jpg" alt="" class="img-fluid z-depth-0">
-                        </th>
-                        <td>
-                            <h5 class="mt-3">
-                                <strong>Gorra</strong>
-                            </h5>
-                            <p class="text-muted">by FifeSteps</p>
-                        </td>
-                        <td>Azul</td>
-                        <td></td>
-                        <td>$600</td>
-                        <td class="text-center text-md-left">
-                            <span class="qty">2 </span>
-                            <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                                <label class="btn btn-sm btn-primary btn-rounded">
-                                    <input type="radio" name="options" id="option1">&mdash;
-                                </label>
-                                <label class="btn btn-sm btn-primary btn-rounded">
-                                    <input type="radio" name="options" id="option2">+
-                                </label>
-                            </div>
-                        </td>
-                        <td class="font-weight-bold">
-                            <strong>$1200</strong>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
-                            </button>
-                        </td>
-                    </tr>
-                    <!-- Third row -->
-                    <!-- Fourth row -->
                     <tr>
                         <td colspan="3"></td>
                         <td>
@@ -151,13 +94,14 @@
                                 <strong>Total</strong>
                             </h4>
                         </td>
-                        <td class="text-right">
-                            <h4 class="mt-2">
-                                <strong>$2600</strong>
-                            </h4>
+
+                        <td class="text-left">
+                            <h3 class="mt-1">
+                                <strong>$&nbsp;{{ $total }}</strong>
+                            </h3>
                         </td>
                         <td colspan="3" class="text-right">
-                            <button type="button" class="btn btn-primary btn-rounded">Complete purchase
+                            <button type="button" class="btn btn-success btn-rounded">Completa tu Compra
                                 <i class="fas fa-angle-right right"></i>
                             </button>
                         </td>
@@ -168,6 +112,8 @@
             </table>
         </div>
         <!-- Shopping Cart table -->
+
+
 
     </section>
     <!-- Section: Block Content -->

@@ -24,6 +24,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+route::get('/carrito', 'CarritoController@encarrito');
+
 Route::resource('productos','productosController');
 /*-----RUTAS PARA SOLAMENTE USAR DEL MODELO EnCarritoController, store y destroy-----*/
 Route::resource('EnCarrito', 'EnCarritoController', [
@@ -77,17 +79,14 @@ Route::get('/productos', 'ProductosController@listado');
 //Route::post('/agregarproducto', 'ProductosController@agregar');
 
 Route::delete('/borrarProducto/{id}', 'productosController@borrar');
+//Route::post('/borrarProducto', 'ProductosController@borrar');
+Route::delete('/borrarProducto{id}', 'ProductosController@borrar');
 Route::get('/producto/{id}', 'ProductosController@detalle'); //consulta detalle
 
 route::get('productos', 'productosController@listado');
 
 Route::get('tabla', function () {
     return view('plantilla_tablas');
-});
-
-
-Route::get('carrito', function () {
-    return view('carrito');
 });
 
 
@@ -159,4 +158,9 @@ Route::get('/modifProducto', 'productosController@modificar');//funciona
 Route::post('modifProducto/{id}', 'ProductosController@update');
 
 Route::PUT('modificaproducto/{id}', 'productosController@modificar');
+
+
+//route::get('index', 'CarritoController@carrito');
+
+Route::get('/driver', 'productosController@driver');//funciona
 
