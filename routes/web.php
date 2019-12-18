@@ -110,7 +110,6 @@ Route::get('contacto', function () {
 
 
 
-Route::get('/detalle/{id}', 'ProductosController@detalle');
 
 Route::get("/usuario/{id}", "UsuariosController@perfil");
 Route::get("/perfilusuario", "UsuariosController@perfilusuario");
@@ -140,21 +139,40 @@ Route::get('/accesorio', 'productosController@accesorio'); //funciona
 //Route::get('index', 'CarritoController@index'); //ruta con carrito
 
 
-Route::get("/altaproductos", function(){
-    return view('altaProductos');
-});
+//Route::get("/altaproductos", function(){
+ //   return view('altaProductos');
+//});
 //Route::get("/usuario/{id}/edit", "UsuariosController@edit");
-Route::post("/altaproductos", "productosController@agregar");
+//Route::post("/altaproductos", "productosController@agregar");
 
 Route::post('/agregarproductos1', 'ProductosController@agregar'); //funciona
 Route::get('/agregarproductos1', function () {
     return view('agregarproductos1');
 }); //funciona
 
-Route::get('/modifProducto', 'productosController@modificar');//funciona
+//Route::get('/modifProducto', 'productosController@modificar'); //funciona
+//Route::post('/modifProducto', 'productosController@update'); //funciona
+
+Route::get('/bajaProducto', 'productosController@baja'); //funciona
 
 //Route::get('/modifProducto/{id}', function(){
- //   return view ('modifProducto');
+//  return view ('modifProducto');
 //});
-Route::post('modifProducto/{id}', 'ProductosControlle@update');
+Route::get('modifProducto/{id}', 'productosController@edit');
 
+Route::put('modifProducto/{id}', 'productosController@update');
+Route::get('/lista', function () {
+    $productos = \App\Producto::orderBy('nombre')->get();
+    return $productos;
+});
+
+//Route::get('/detalleP/{id}', 'productosController@detalleP');//viene de listado
+//Route::post('/borrarProducto', 'productosController@borrar');
+
+//Route::get('/listado', 'productosController@listado');//basico direcciona a detalle.blade
+//Route::post('/borrarProducto', 'productosController@borrar');
+//Route::get('/detalle/{id}', 'productosController@detalle');
+
+//Route::get('modificar/{id}', 'productosController@edit');//prueba funcion devuelve productos
+
+//Route::put('/modificar/{id}', 'productosController@modif');//prueba funcion devuelve productos

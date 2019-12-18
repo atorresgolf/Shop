@@ -10,10 +10,10 @@
     <script src="https://kit.fontawesome.com/0cb2d9cf91.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <!-- <link rel="stylesheet" href="css/INDEX.css"> -->
-    <link rel="stylesheet" href="{{ asset("css/INDEX.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/FOOTER.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/ESTILOS.css") }}">
-    <link href="{{ asset("css/app.css") }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/INDEX.css">
+    <link rel="stylesheet" href="/css/FOOTER.css">
+    <link rel="stylesheet" href="/css/ESTILOS.css">
+    <link href="/css/app.css" rel="stylesheet">
 
     <title>INICIO</title>
 </head>
@@ -29,7 +29,7 @@
 
         <div class="barra-nav">
             <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-                <a class="navbar-brand" href="{{ ('index') }}">
+                <a class="navbar-brand" href="/../index">
                     <img src="img/shopgolf.png" width="80" height="50" class="d-inline-block align-center" alt="">
                 </a>
                 <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">-->
@@ -40,14 +40,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav mx-auto">
                         <!--<li class="nav-item active"></li>-->
-                        <a class="nav-item nav-link mx-auto inicio" href="{{ ('index') }}">INICIO</a>
+                        <a class="nav-item nav-link mx-auto inicio" href="/../index">INICIO</a>
 
-                        <a class="nav-item nav-link mx-auto drivers" href="/categoria/1">DRIVERS</a>
-                        <a class="nav-item nav-link mx-auto hierros" href="/categoria/2">HIERROS</a>
-                        <a class="nav-item nav-link mx-auto putters" href="/categoria/3">PUTTERS</a>
-                        <a class=" nav-item nav-link mx-auto accesorios" href="/categoria/4">ACCESORIOS</a>
+                        <a class="nav-item nav-link mx-auto drivers" href="/../driver">DRIVERS</a>
+                        <a class="nav-item nav-link mx-auto hierros" href="/../hierro">HIERROS</a>
+                        <a class="nav-item nav-link mx-auto putters" href="/../putter">PUTTERS</a>
+                        <a class=" nav-item nav-link mx-auto accesorios" href="/../accesorio">ACCESORIOS</a>
                        
-                        <a class="nav-item nav-link mx-auto academia" href="{{ ('academia') }}">ACADEMIA</a>
+                        <a class="nav-item nav-link mx-auto academia" href="/../academia">ACADEMIA</a>
                         <a class="car" href="{{ ('carrito') }}">
                             <li class="nav-item"></li>
                             <div class=carro">
@@ -77,12 +77,14 @@
                                 </a>
                                 <div class="container-fluid" >
                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/perfilusuario">
+                                    <a class="dropdown-item" href="/../perfilusuario">
                                         Perfil de Usuario
                                     </a>
-                                   {{-- <a class="dropdown-item" href="/profile">
-                                        Subir Foto
-                                    </a>--}}
+                                    @if(Auth::user()->email == 'atorresgolf@gmail.com')
+                                    <a class="dropdown-item" href="/../listado">
+                                        ABM
+                                    </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -98,8 +100,8 @@
                             </li>
                             </div>
                       @else
-                    <a class="btn btn-light btn-sm mr-3" href='{{ ('register') }}' role="button">Creá tu cuenta</a>
-                    <a class="btn btn-light btn-sm mr-3" href='{{ ('login') }}' role="button">Ingresá</a>
+                    <a class="btn btn-light btn-sm mr-3" href='/../register' role="button">Creá tu cuenta</a>
+                    <a class="btn btn-light btn-sm mr-3" href='/../login'' role="button">Ingresá</a>
                 
                     @endif
                 </div>
@@ -140,14 +142,14 @@
             </section>
             <section class="link">
                 <ul>
-                    <li><a href="{{ ('index') }}">Home</a></li>
+                    <li><a href="/../index">Home</a></li>
                     <br>
-                    <li><a href="{{ ('preguntasfrecuentes') }}">Preguntas Frecuentes</a></li>
-                    <li><a href="{{ ('register') }}">Formulario de Registro</a></li>
+                    <li><a href="/../preguntasfrecuentes">Preguntas Frecuentes</a></li>
+                    <li><a href="/../register">Formulario de Registro</a></li>
                    @if(Auth::user())
-                    <li><a href="usuarios.php ">Perfil de Usuario</a></li>
+                    <li><a href="/../perfilusuario">Perfil de Usuario</a></li>
                     @endif
-                    <li><a href="{{ ('contacto') }}">Contacto</a></li>
+                    <li><a href="/../contacto">Contacto</a></li>
                 </ul>
             </section>
             <div>
