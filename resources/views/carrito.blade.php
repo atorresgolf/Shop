@@ -77,9 +77,12 @@
                             <!--TOTAL DEL PRODUCTO-->
                         </td>
                         <td>
-                            
+                            <form method="POST" action="{{ url('/EnCarrito/'.$producto->id) }}">
+                           {{ csrf_field() }}
+                           {{ method_field('DELETE') }}  
                                 <button type="submit" onclick="return confirm('¿Desea eliminar el articulo?')" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Remove item">X
                                 </button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

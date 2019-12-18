@@ -24,5 +24,10 @@ class CarritoController extends Controller{
         return view("carrito", ["productos" => $productos, "total" => $total]);
         
     }
+    public function destroy($producto_id)
+    {
+        Carrito::destroy($producto_id);
+        return redirect('carrito');
+    }
     
 }
