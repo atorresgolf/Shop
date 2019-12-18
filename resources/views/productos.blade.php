@@ -83,7 +83,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form method="PUT" action="{{ url('/modificaproducto/'.$producto->id) }}">
+                                        <form method="POST" action="{{ url('/modifProducto/'.$producto->id) }}">
                                             <button class="btn btn-primary" type="submit" id="borrar">Modificar</button>
                                         </form>
                                     </td>
