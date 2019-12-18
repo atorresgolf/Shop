@@ -156,7 +156,7 @@ Route::get('/modifProducto', 'productosController@modificar');//funciona
 //Route::get('/modifProducto/{id}', function(){
  //   return view ('modifProducto');
 //});
-Route::post('modifProducto/{id}', 'ProductosControlle@update');
+Route::post('modifProducto/{id}', 'ProductosController@update');
 
 Route::PUT('modificaproducto/{id}', 'productosController@modificar');
 
