@@ -3,8 +3,8 @@
 @section('principal')
 
 <div class="galeria" style="position:relative; top:10rem;">
-    <h1>ACADEMIA DE GOLF ! ! ! ! !</h1>
-    <div class="linea"></div>
+    <!--<h1>ACADEMIA DE GOLF ! ! ! ! !</h1>
+    <div class="linea"></div>-->
     <div class="contenedor-imagenes">
         <div class="imagen">
             <img src="img/acad1.jpg" alt="" ;>

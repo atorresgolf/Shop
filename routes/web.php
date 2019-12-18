@@ -76,7 +76,7 @@ Route::get('/productos', 'ProductosController@listado');
 
 //Route::post('/agregarproducto', 'ProductosController@agregar');
 
-Route::post('/borrarProducto', 'ProductosController@borrar');
+Route::delete('/borrarProducto/{id}', 'productosController@borrar');
 Route::get('/producto/{id}', 'ProductosController@detalle'); //consulta detalle
 
 route::get('productos', 'productosController@listado');

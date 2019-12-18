@@ -240,14 +240,16 @@ class productosController extends Controller
     }
     
     public function borrar(Request $form)
+    //public function borrar($id)
     {
         $id = $form['id'];
-
         $producto = Producto::find($id);
-
         $producto->delete();
+
+        //Producto::destroy($id);
         return redirect('/productos');
     }
+    
     public function detalle($id)
     {
 
@@ -272,4 +274,10 @@ class productosController extends Controller
         return view('productos', $vac);
     }
 
+    public function destroy($id){
+
+        Producto::destroy($id);
+
+        return redirect('productos');
+    }
 }
