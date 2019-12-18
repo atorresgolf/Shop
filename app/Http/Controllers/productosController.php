@@ -16,11 +16,11 @@ class productosController extends Controller
     //
     public function listado(Request $req)
     {
-        $productos = Producto::all();
+        $productos = Producto::orderBy('nombre')->get();
 
         //dd($productos);
         $vac = compact('productos');
-        return view("productos", $vac);
+        return view("listado", $vac);
 
     }
 
@@ -33,14 +33,14 @@ class productosController extends Controller
         return view("product", $vac);
     }
 
-    public function prodcat(Request $req)
+   /* public function prodcat(Request $req)
     {
         $productos = Producto::all();
 
         // dd($productos);
         $vac = compact('productos');
         return view("prod", $vac);//la mando a vista con cat
-    }
+    }*/
     public function hierro(Request $req)
     {
         $productos = Producto::all();
@@ -92,7 +92,7 @@ class productosController extends Controller
 
         return redirect('/productos');
     }*/
-
+//altaproductos
     public function agregar(Request $req)
     {
         $reglas = [
@@ -154,18 +154,31 @@ class productosController extends Controller
         return redirect('/productos');
     }
 
-    public function modificar(Request $req)
+    //public function modificar(Request $req)
+    //{
+    //    $productos = Producto::Paginate(4);
+//
+  //      
+    //    $vac = compact('productos');
+    //    return view("modifProducto", $vac); //pruebo x categoria anda
+   // }
+    //para obtener el id por get
+    public function edit($id)
     {
-        $productos = Producto::all();
 
-        // dd($productos);
-        $vac = compact('productos');
-        return view("modifProducto", $vac); //pruebo x categoria anda
+        $producto = Producto::Find($id);
+
+        $vac = compact('producto');
+
+        return view('modifProducto', $vac);
+        
     }
+    //modificarproductos, llamada por moifproductos
     public function update(Request $req, $id)
     {
+       // $id = $req['id'];
         $producto = Producto::find($id);
-
+//dd($producto);
         $reglas = [
             'nombre' => 'string|min:0|max:100',
             'descripcion' => 'string|min:0|max:255',
@@ -231,13 +244,30 @@ class productosController extends Controller
 
             $producto->poster2 = $nombreArchivo2;
         }
-
+//dd($producto);
         $producto->save();
 
-        return redirect('/productos');
+        return redirect('/tabla');
 
 
     }
+   /* public function modif(Request $req, $id)
+    {
+        // $id = $req['id'];
+        $producto = Producto::find($id);
+        dd($producto);
+        
+        $producto->nombre = $req['nombre'];
+        $producto->descripcion = $req['descripcion'];
+        $producto->precio = $req['precio'];
+       // $producto->stock = $req['stock'];
+       // $producto->nombre_categoria = $req['nombre_categoria'];
+        $producto->nombre_marca = $req['nombre_marca'];
+
+         $producto->save();
+
+        return redirect('/detalleP/{id}');
+    }*/
     
     public function borrar(Request $form)
     {
@@ -246,8 +276,9 @@ class productosController extends Controller
         $producto = Producto::find($id);
 
         $producto->delete();
-        return redirect('/productos');
+        return redirect('/modifProducto');
     }
+   
     public function detalle($id)
     {
 
@@ -255,9 +286,19 @@ class productosController extends Controller
 
         $producto = Producto::find($id);
         $vac = compact('producto');
-
-        return view("detalleproductos", $vac);
+    
+        return view("detalleproductos", $vac);//cambio detalleproductos
     }
+    /*public function detalleP($id)
+    {
+
+        //$vac= compact("id");
+
+        $producto = Producto::find($id);
+        $vac = compact('producto');
+
+        return view("detalle", $vac); //cambio detalleproductos
+    }*/
 
 
     public function search()
