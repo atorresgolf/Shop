@@ -8,7 +8,13 @@
             <div class="mx-auto" style="margin-top:5rem">
                 <div class="px-4">
                     <div class="table-wrapper">
-                        <h1 class="text-center mb-3">ABM DE PRODUCTOS</h1>
+                        <h1 class="text-center">ABM DE PRODUCTOS</h1>
+                        <!--BOTON AGREGAR PRODUCTO--------------------->
+                    
+                        <form method="POST" action="">
+                            <button class="btn btn-success mb-5" type="submit" id="agregar" style="margin-left:75rem">AGREGAR</button>
+                        </form>
+                    </div>
                         <!--Table-->
                         <table class="table table-hover">
 
@@ -45,11 +51,6 @@
                                         </a>
                                     </th>
                                     <th class="th-lg text-center">
-                                        <a>AGREGAR
-                                            <!--<i class="fas fa-sort ml-1"></i>-->
-                                        </a>
-                                    </th>
-                                    <th class="th-lg text-center">
                                         <a>MODIFICAR
                                             <!--<i class="fas fa-sort ml-1"></i>-->
                                         </a>
@@ -77,11 +78,7 @@
                                             <button class="btn btn-danger" type="submit" id="borrar">Borrar</button>
                                         </form>
                                     </td>
-                                    <td>
-                                        <form method="" action="">
-                                            <button class="btn btn-success" type="submit" id="borrar">Agregar</button>
-                                        </form>
-                                    </td>
+                                    <!--BOTON MODIFICAR NO FUNCIONA LA VISTA MODIFPRODUCTO, SI TOMA EL ID DEL PREODUCTO-------->
                                     <td>
                                         <form method="POST" action="{{ url('/modifProducto/'.$producto->id) }}">
                                             <button class="btn btn-primary" type="submit" id="borrar">Modificar</button>
