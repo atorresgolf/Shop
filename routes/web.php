@@ -65,7 +65,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/header', 'IndexController@header')->name('header');
 
-Route::get('/productos', 'ProductosController@listado');
+//Route::get('/productos', 'ProductosController@listado');
 
 //Route::get('/agregarproducto', function () {
 //    return view('agregarproducto');
@@ -144,10 +144,10 @@ Route::get('/accesorio', 'productosController@accesorio'); //funciona
 //Route::get("/usuario/{id}/edit", "UsuariosController@edit");
 //Route::post("/altaproductos", "productosController@agregar");
 
-Route::post('/agregarproductos1', 'ProductosController@agregar'); //funciona
-Route::get('/agregarproductos1', function () {
-    return view('agregarproductos1');
+Route::get('/agregarproductos', function () {
+    return view('agregarproductos');
 }); //funciona
+Route::post('/agregarproductos', 'ProductosController@agregar'); //funciona
 
 //Route::get('/modifProducto', 'productosController@modificar'); //funciona
 //Route::post('/modifProducto', 'productosController@update'); //funciona
@@ -176,7 +176,7 @@ Route::get('/driver', 'productosController@driver');//funciona
 
 //Route::get('/listado', 'productosController@listado');//basico direcciona a detalle.blade
 //Route::post('/borrarProducto', 'productosController@borrar');
-//Route::get('/detalle/{id}', 'productosController@detalle');
+Route::get('/detalle/{id}', 'productosController@detalle');
 
 //Route::get('modificar/{id}', 'productosController@edit');//prueba funcion devuelve productos
 

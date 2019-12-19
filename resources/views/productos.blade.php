@@ -10,10 +10,11 @@
                     <div class="table-wrapper">
                         <h1 class="text-center">ABM DE PRODUCTOS</h1>
                         <!--BOTON AGREGAR PRODUCTO--------------------->
-                    
-                        <form method="POST" action="">
+                        <a id="agergar" class="btn btn-success" href="/../agregarproductos" role="button" >AGREGAR </a>
+
+                       {{-- <form method="POST" action="">
                             <button class="btn btn-success mb-5" type="submit" id="agregar" style="margin-left:75rem">AGREGAR</button>
-                        </form>
+                        </form>--}}
                     </div>
                         <!--Table-->
                         <table class="table table-hover">
@@ -80,9 +81,12 @@
                                     </td>
                                     <!--BOTON MODIFICAR NO FUNCIONA LA VISTA MODIFPRODUCTO, SI TOMA EL ID DEL PREODUCTO-------->
                                     <td>
-                                        <form method="POST" action="{{ url('/modifProducto/'.$producto->id) }}">
+
+                                    <a id="modificar" class="btn btn-primary" href="{{ url('/modifProducto/'.$producto->id) }}" role="button" >Modificar </a>
+
+                                        {{--<form method="POST" action="{{ url('/modifProducto/'.$producto->id) }}">
                                             <button class="btn btn-primary" type="submit" id="borrar">Modificar</button>
-                                        </form>
+                                        </form>--}}
                                     </td>
                                 </tr>
                                 @endforeach

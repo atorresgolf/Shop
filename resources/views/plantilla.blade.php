@@ -88,9 +88,11 @@
                                     <a class="dropdown-item" href="/perfilusuario">
                                         Perfil de Usuario
                                     </a>
-                                    {{-- <a class="dropdown-item" href="/profile">
-                                        Subir Foto
-                                    </a>--}}
+                                    @if(Auth::user()->email == 'atorresgolf@gmail.com')
+                                    <a class="dropdown-item" href="/../productos">
+                                        ABM
+                                    </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar Sesion') }}
@@ -159,7 +161,9 @@
                     <li><a href="{{ ('/../index') }}">Home</a></li>
                     <br>
                     <li><a href="{{ ('/../preguntasfrecuentes') }}">Preguntas Frecuentes</a></li>
+                    @if(!Auth::user())
                     <li><a href="{{ ('/../register') }}">Formulario de Registro</a></li>
+                    @endif
                     @if(Auth::user())
                     <li><a href="{{ ('/../perfilUsuario') }}">Perfil de Usuario</a></li>
                     @endif

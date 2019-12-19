@@ -21,13 +21,13 @@
                     <!--Slides-->
                     <div class="carousel-inner text-center text-md-left" role="listbox">
                         <div class="carousel-item active">
-                            <img src="/storage/{{$producto->poster}}" alt="First slide" class="img-fluid">
+                            <img src="/storage/products/{{$producto->poster}}" alt="First slide" class="img-fluid">
                         </div>
                         <div class="carousel-item">
-                            <img src="/storage/{{$producto->poster1}}" alt="Second slide" class="img-fluid">
+                            <img src="/storage/products/{{$producto->poster1}}" alt="Second slide" class="img-fluid">
                         </div>
                         <div class="carousel-item">
-                            <img src="/storage/{{$producto->poster2}}" alt="Third slide" class="img-fluid">
+                            <img src="/storage/products/{{$producto->poster2}}" alt="Third slide" class="img-fluid">
                         </div>
                     </div>
                     <!--/.Slides-->
@@ -201,15 +201,7 @@
                             <div class="col-md-12 text-center text-md-left text-md-right">
                                 <button class="btn btn-info btn-rounded">
                                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Agregar carrito</button>
-                                    @if(Auth::user())
-                                         @if(Auth::user()->email == 'atorresgolf@gmail.com' )
-                                            <button class="btn btn-primary btn-rounded">
-                                            <a class="fas fa-cart-plus mr-2"  href="/modifProducto/{{$producto->id}}"></a> Modificar</button>
-                                            <a class="btn btn-light btn-sm mr-3" href='modifProducto/{{$producto->id}}' role="button">Modificar Producto</a>
-
-                                            @endif
-                                    @endif
-                           
+                                    
                             </div>
                         </div>
                     </div>

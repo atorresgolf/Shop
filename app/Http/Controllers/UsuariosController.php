@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 //use Illuminate\Support\Facades\Hash;
-//use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -60,6 +60,16 @@ public function usuario()
             $user->avatar = $avatarName;
 
        }
+        $validator = Validator::make($req->all(), [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('post/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
         
         $user->save();
 

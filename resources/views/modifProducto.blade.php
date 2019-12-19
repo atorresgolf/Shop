@@ -58,7 +58,12 @@
     <input type="text" name="nombre_categoria" value="{{$producto->nombre_categoria}}">
 </div>
 </div>
-
+<div class="form-group row">
+    <label for="id_categoria" class="col-md-4 col-form-label text-md-right">ID Categoria:</label>
+    <div class="col-md-6">
+    <input type="text" name="id_categoria" value="{{$producto->id_categoria}}">
+</div>
+</div>
 <div class='form-group row'>
 <label for="poster" class="col-md-4 col-form-label text-md-right">Foto 1: </label>
 <div class="col-md-6">

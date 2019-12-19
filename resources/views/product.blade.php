@@ -14,7 +14,7 @@
                 <div class=" card-header text-white bg-dark" style="width:100%">
                     {{$producto->nombre}}
                 </div>
-                <img src="/../storage/{{$producto->poster}}" class="card-img-top img-fluid" alt="...">
+                <img src="/../storage/products/{{$producto->poster}}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body" style="height:14.5rem">
                     <h3 class="card-title">Consulte por varas</h3>
                     <p class="card-text"></p>

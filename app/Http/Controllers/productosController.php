@@ -22,7 +22,7 @@ class productosController extends Controller
 
         //dd($productos);
         $vac = compact('productos');
-        return view("listado", $vac);
+        return view("productos", $vac);
 
     }
 
@@ -106,7 +106,7 @@ class productosController extends Controller
             //'id_proveedor' => 'integer|min:0',
             'nombre_categoria' => 'string|min:3|max:100',
             'nombre_marca' => 'string|min:3|max:100',
-
+            'id_categoria' => 'numeric|required|min:1|max:11',
             'poster' => 'file',
             'poster1' => 'file',
             'poster2' => 'file'
@@ -125,17 +125,17 @@ class productosController extends Controller
 
         $productoNuevo = new Producto();
         //guardamos archivo
-        $ruta = $req->file('poster')->store('public');
+        $ruta = $req->file('poster')->store('products');
         $nombreArchivo = basename($ruta);
 
         $productoNuevo->poster = $nombreArchivo;
         
-        $ruta1 = $req->file('poster1')->store('public');
+        $ruta1 = $req->file('poster1')->store('products');
         $nombreArchivo1 = basename($ruta1);
 
         $productoNuevo->poster1 = $nombreArchivo1;
 
-        $ruta2 = $req->file('poster2')->store('public');
+        $ruta2 = $req->file('poster2')->store('products');
         $nombreArchivo2 = basename($ruta2);
 
         $productoNuevo->poster2 = $nombreArchivo2;
@@ -147,6 +147,8 @@ class productosController extends Controller
         $productoNuevo->precio = $req['precio'];
         $productoNuevo->stock = $req['stock'];
         $productoNuevo->nombre_categoria = $req['nombre_categoria'];
+        $productoNuevo->id_categoria = $req['id_categoria'];
+
         $productoNuevo->nombre_marca = $req['nombre_marca'];
 
 
@@ -190,6 +192,7 @@ class productosController extends Controller
             //'id_proveedor' => 'integer|min:0',
             'nombre_categoria' => 'string|min:3|max:100',
             'nombre_marca' => 'string|min:3|max:100',
+            'id_categoria' => 'numeric|required|min:1|max:11',
 
             'poster' => 'file',
             'poster1' => 'file',
@@ -214,13 +217,14 @@ class productosController extends Controller
         $producto->stock = $req['stock'];
         $producto->nombre_categoria = $req['nombre_categoria'];
         $producto->nombre_marca = $req['nombre_marca'];
-        
+        $producto->id_categoria = $req['id_categoria'];
+
         if ($req->poster) {
             $req->validate([
                 'poster' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
 
             ]);
-            $ruta = $req->file('poster')->store('public');
+            $ruta = $req->file('poster')->store('products');
             $nombreArchivo = basename($ruta);
 
             $producto->poster = $nombreArchivo;
@@ -231,7 +235,7 @@ class productosController extends Controller
                 'poster1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
 
             ]);
-            $ruta1 = $req->file('poster1')->store('public');
+            $ruta1 = $req->file('poster1')->store('products');
             $nombreArchivo1 = basename($ruta1);
 
             $producto->poster1 = $nombreArchivo1;
@@ -241,7 +245,7 @@ class productosController extends Controller
                 'poster2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
 
             ]);
-            $ruta2 = $req->file('poster2')->store('public');
+            $ruta2 = $req->file('poster2')->store('products');
             $nombreArchivo2 = basename($ruta2);
 
             $producto->poster2 = $nombreArchivo2;
@@ -249,7 +253,7 @@ class productosController extends Controller
 //dd($producto);
         $producto->save();
 
-        return redirect('/tabla');
+        return redirect('/productos');
 
 
     }
@@ -276,16 +280,16 @@ class productosController extends Controller
     {
         $id = $form['id'];
 
-        $encarrito = EnCarrito::find($id);
+       // $encarrito = EnCarrito::find($id);
 
-        $encarrito->producto->detach($id);
+        //$encarrito->producto->detach($id);
         
         $producto = Producto::find($id);
         $producto->delete();
 
-        $encarrito = EnCarrito::find($id);
+        //$encarrito = EnCarrito::find($id);
 
-        $encarrito->producto->detach($id);
+        //$encarrito->producto->detach($id);
         //Producto::destroy($id);
         return redirect('/productos');
     }
