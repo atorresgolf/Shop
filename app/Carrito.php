@@ -31,6 +31,10 @@ class Carrito extends Model
         return $this->productos()->count();
     }
 
+    public function total(){
+        return $this->productos()->sum("precio");
+    }
+
     public static function buscarOCrearPorSesionId($carrito_id){
         if($carrito_id)
             // Busca el carrito de compras con este ID

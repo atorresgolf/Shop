@@ -1,274 +1,116 @@
 @extends('plantilla')
 
 @section('principal')
-<div class="container" style="position: relative; left: 0px; top: 105px;">
-    <div class="row">
-        <div class="col-md-auto col-lg-4">
-            <div class="card mt-5" style="width:18rem">
-                @foreach ($productos as $producto)
-                <div class=" card-header text-white bg-dark" style="width:100%">
-                    <p class="card-text">{{$producto->descripcion}}</p>
-                </div>
-                <img src="/storage/{{$producto->poster}}" class="card-img-top img-fluid" alt="...">
-                <div class="card-body" style="height:10rem">
-                    <h3 class="card-title">{{$producto->nombre}}</h3>
-                     <h3 class="card-title">Precio: $ {{$producto->precio}}</h3>
-
-                    <p class="card-text"><br></p>
-                    <a href="#" class="btn btn-success">Agregar al Carrito</a>
-                </div>
-            </div>
-
-        </div>
-        <!--/Card image-->
-
-        <div class="px-4">
-
-            <div class="table-wrapper">
-                <!--Table-->
-                <table class="table table-hover mb-0">
-
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            <th>
-                                <input class="form-check-input" type="checkbox" id="checkbox">
-                                <label class="form-check-label" for="checkbox" class="mr-2 label-table"></label>
-                            </th>
-                            <th class="th-lg">
-                                <a>Marca Producto
-                                    <i class="fas fa-sort ml-1"></i>
-                                </a>
-                            </th>
-                            <th class="th-lg">
-                                <a href="">Descripcion Producto
-                                    <i class="fas fa-sort ml-1"></i>
-                                </a>
-                            </th>
-                            <th class="th-lg">
-                                <a href="">Precio
-                                    <i class="fas fa-sort ml-1"></i>
-                                </a>
-                            </th>
-                            <th class="th-lg">
-                                <a href="">Categoria
-                                    <i class="fas fa-sort ml-1"></i>
-                                </a>
-                            </th>
-                            <th class="th-lg">
-                                <a href="">Stock
-                                    <i class="fas fa-sort ml-1"></i>
-                                </a>
-                            </th>
-                            <th class="th-lg">
-                                <a href="">
-                                    <i class="fas fa-sort ml-1"></i>
-                                </a>
-                            </th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-
-                    <!--Table body-->
-                    <tbody>
-                        <tr>
-                            @foreach ($productos as $producto)
-                            <th scope="row">
-                                <input class="form-check-input" type="checkbox" id="checkbox1">
-                                <label class="form-check-label" for="checkbox1" class="label-table"></label>
-                            </th>
-                            <td>{{$producto->nombre}}</td>
-                            <td>{{$producto->descripcion}}</td>
-                            <td>{{$producto->precio}}</td>
-                            <td>{{$producto->nombre_categoria}}</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-
-                    </tbody>
-                    <!--Table body-->
-                </table>
-                <!--Table-->
-            </div>
-
-        </div>
-    </div>
-</div>
-        @endforeach
+.
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-ms-12 col-md-12 col-lg-12">
+            <div class="mx-auto" style="margin-top:5rem">
+                <div class="px-4">
+                    <div class="table-wrapper">
+                        <h1 class="text-center">ABM DE PRODUCTOS</h1>
+                        <!--BOTON AGREGAR PRODUCTO--------------------->
                     
-              
-                    <a href="#" class="btn btn-success">Agregar al Carrito</a>
-                
+                        <form method="POST" action="">
+                            <button class="btn btn-success mb-5" type="submit" id="agregar" style="margin-left:75rem">AGREGAR</button>
+                        </form>
+                    </div>
+                        <!--Table-->
+                        <table class="table table-hover">
 
-    </div>
-    <!-- Table with panel -->
+                            <!--Table head-->
+                            <thead>
+                                <tr>
+                                    <!--<th>
+                                        <input class="form-check-input" type="checkbox" id="checkbox">
+                                        <label class="form-check-label" for="checkbox" class="mr-2 label-table"></label>
+                                    </th>-->
+                                    <th class="th-lg text-center">
+                                        <a>Marca Producto
+                                            <!--<i class="fas fa-sort ml-1"></i>-->
+                                        </a>
+                                    </th>
+                                    <th class="th-lg text-center">
+                                        <a>Descripcion Producto
+                                            <!--<i class="fas fa-sort ml-1"></i>-->
+                                        </a>
+                                    </th>
+                                    <th class="th-lg text-center">
+                                        <a>Precio
+                                            <!--<i class="fas fa-sort ml-1"></i>-->
+                                        </a>
+                                    </th>
+                                    <th class="th-lg text-center">
+                                        <a>Categoria
+                                            <!--<i class="fas fa-sort ml-1"></i>-->
+                                        </a>
+                                    </th>
+                                    <th class="th-lg text-center">
+                                        <a>BORRAR
+                                            <!--<i class="fas fa-sort ml-1"></i>-->
+                                        </a>
+                                    </th>
+                                    <th class="th-lg text-center">
+                                        <a>MODIFICAR
+                                            <!--<i class="fas fa-sort ml-1"></i>-->
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!--Table head-->
 
-    <!-- /Start your project here-->
-    <div class="container my-5 py-3 z-depth-1 rounded">
+                            <!--Table body-->
+                            <tbody>
+                                <tr>
+                                    @foreach ($productos as $producto)
+                                    <!--<th scope="row">
+                                        <input class="form-check-input" type="checkbox" id="checkbox1">
+                                        <label class="form-check-label" for="checkbox1" class="label-table"></label>
+                                    </th>-->
+                                    <td>{{$producto->nombre}}</td>
+                                    <td>{{$producto->descripcion}}</td>
+                                    <td>${{$producto->precio}}</td>
+                                    <td class="text-center">{{$producto->nombre_categoria}}</td>
+                                    <td>
+                                        <form method="POST" action="{{ url('/borrarProducto/'.$producto->id) }}">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button class="btn btn-danger" type="submit" id="borrar">Borrar</button>
+                                        </form>
+                                    </td>
+                                    <!--BOTON MODIFICAR NO FUNCIONA LA VISTA MODIFPRODUCTO, SI TOMA EL ID DEL PREODUCTO-------->
+                                    <td>
+                                        <form method="POST" action="{{ url('/modifProducto/'.$producto->id) }}">
+                                            <button class="btn btn-primary" type="submit" id="borrar">Modificar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
 
+                            </tbody>
+                            <!--Table body-->
+                        </table>
+                        <!--Table-->
+                    </div>
 
-        <!--Section: Content-->
-        <section class="dark-grey-text">
-
-            <!-- Shopping Cart table -->
-            <div class="table-responsive">
-
-                <table class="table product-table mb-0">
-
-                    <!-- Table head -->
-                    <thead class="mdb-color lighten-5">
-                        <tr>
-                            <th></th>
-                            <th class="font-weight-bold">
-                                <strong>Product</strong>
-                            </th>
-                            <th class="font-weight-bold">
-                                <strong>Color</strong>
-                            </th>
-                            <th></th>
-                            <th class="font-weight-bold">
-                                <strong>Price</strong>
-                            </th>
-                            <th class="font-weight-bold">
-                                <strong>QTY</strong>
-                            </th>
-                            <th class="font-weight-bold">
-                                <strong>Amount</strong>
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <!-- /.Table head -->
-
-                    <!-- Table body -->
-                    <tbody>
-
-                        <!-- First row -->
-                        <tr>
-                            <th scope="row">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" alt="" class="img-fluid z-depth-0">
-                            </th>
-                            <td>
-                                <h5 class="mt-3">
-                                    <strong>iPhone</strong>
-                                </h5>
-                                <p class="text-muted">Apple</p>
-                            </td>
-                            <td>White</td>
-                            <td></td>
-                            <td>$800</td>
-                            <td>
-                                <input type="number" value="2" aria-label="Search" class="form-control" style="width: 100px">
-                            </td>
-                            <td class="font-weight-bold">
-                                <strong>$800</strong>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- /.First row -->
-
-                        <!-- Second row -->
-                        <tr>
-                            <th scope="row">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg" alt="" class="img-fluid z-depth-0">
-                            </th>
-                            <td>
-                                <h5 class="mt-3">
-                                    <strong>Headphones</strong>
-                                </h5>
-                                <p class="text-muted">Sony</p>
-                            </td>
-                            <td>Red</td>
-                            <td></td>
-                            <td>$200</td>
-                            <td>
-                                <input type="number" value="2" aria-label="Search" class="form-control" style="width: 100px">
-                            </td>
-                            <td class="font-weight-bold">
-                                <strong>$600</strong>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- /.Second row -->
-
-                        <!-- Third row -->
-                        <tr>
-                            <th scope="row">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" alt="" class="img-fluid z-depth-0">
-                            </th>
-                            <td>
-                                <h5 class="mt-3">
-                                    <strong>iPad Pro</strong>
-                                </h5>
-                                <p class="text-muted">Apple</p>
-                            </td>
-                            <td>Gold</td>
-                            <td></td>
-                            <td>$600</td>
-                            <td>
-                                <input type="number" value="2" aria-label="Search" class="form-control" style="width: 100px">
-                            </td>
-                            <td class="font-weight-bold">
-                                <strong>$1200</strong>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- /.Third row -->
-
-                        <!-- Fourth row -->
-                        <tr>
-                            <td colspan="3"></td>
-                            <td>
-                                <h4 class="mt-2">
-                                    <strong>Total</strong>
-                                </h4>
-                            </td>
-                            <td class="text-right">
-                                <h4 class="mt-2">
-                                    <strong>$2600</strong>
-                                </h4>
-                            </td>
-                            <td colspan="3" class="text-right">
-                                <button type="button" class="btn btn-primary btn-rounded">Complete purchase
-                                    <i class="fas fa-angle-right right"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- Fourth row -->
-
-                    </tbody>
-                    <!-- /.Table body -->
-
-                </table>
-
+                </div>
             </div>
-            <!-- /.Shopping Cart table -->
-
+        </div>
         </section>
         <!--Section: Content-->
 
-
     </div>
+</div>
 
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
 
 </html>

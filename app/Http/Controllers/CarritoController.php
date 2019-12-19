@@ -9,17 +9,25 @@ use Session;
 
 class CarritoController extends Controller{
     
-    public function carrito(){
+    public function encarrito(){
 
+        $carrito_id = Session()->get('carrito_id');
+
+        $carrito = Carrito::buscarOCrearPorSesionId($carrito_id);
+
+        $productos = $carrito->productos()->get();
         
-        //Session()->flash('carrito_id', $carrito);
+        $total = $carrito->total();
 
-        //return view('index', compact("carrito"));
+        //$encarrito = $carrito->enCarrito()->get();
 
-        //Return view('/index', ["carrito"=>$carrito]);
-    
-    
+        return view("carrito", ["productos" => $productos, "total" => $total]);
         
+    }
+    public function destroy($producto_id)
+    {
+        Carrito::destroy($producto_id);
+        return redirect('carrito');
     }
     
 }

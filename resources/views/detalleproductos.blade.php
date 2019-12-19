@@ -1,7 +1,7 @@
 @extends('plantilla')
 
 @section('principal')
-
+.
 <div class="container my-5 py-5 z-depth-1">
 
 
@@ -53,7 +53,7 @@
                 <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
                     <strong>{{$producto->nombre_categoria}}</strong>
                 </h2>
-                <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">bestseller</span>
+                <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">lo mas buscado</span>
                 <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
                     <span class="red-text font-weight-bold">
                         <strong>$ {{$producto->precio}}</strong>
@@ -199,7 +199,7 @@
                         @endif
                         <div class="row mt-3">
                             <div class="col-md-12 text-center text-md-left text-md-right">
-                                <button class="btn btn-primary btn-rounded">
+                                <button class="btn btn-info btn-rounded">
                                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Agregar carrito</button>
                                     @if(Auth::user())
                                          @if(Auth::user()->email == 'atorresgolf@gmail.com' )

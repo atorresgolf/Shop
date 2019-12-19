@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 //use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Carrito;
+use App\EnCarrito;
 //use Auth;
 //use Illuminate\Support\Facades\Validator;
 
@@ -270,15 +272,24 @@ class productosController extends Controller
     }*/
     
     public function borrar(Request $form)
+    //public function borrar($id)
     {
         $id = $form['id'];
 
-        $producto = Producto::find($id);
+        $encarrito = EnCarrito::find($id);
 
+        $encarrito->producto->detach($id);
+        
+        $producto = Producto::find($id);
         $producto->delete();
-        return redirect('/modifProducto');
+
+        $encarrito = EnCarrito::find($id);
+
+        $encarrito->producto->detach($id);
+        //Producto::destroy($id);
+        return redirect('/productos');
     }
-   
+    
     public function detalle($id)
     {
 
@@ -313,4 +324,14 @@ class productosController extends Controller
         return view('productos', $vac);
     }
 
+    public function destroy($id){
+
+        Producto::destroy($id);
+
+        return redirect('productos');
+
+        $carrito = Carrito::find($id);
+
+        $carrito->producto->detach($id);
+    }
 }

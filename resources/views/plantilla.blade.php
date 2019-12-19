@@ -2,13 +2,19 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <!--<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0cb2d9cf91.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <!-- <SWEET ALERT--------------------------------- -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- <link rel="stylesheet" href="css/INDEX.css"> -->
     <link rel="stylesheet" href="/css/INDEX.css">
     <link rel="stylesheet" href="/css/FOOTER.css">
@@ -29,7 +35,7 @@
 
         <div class="barra-nav">
             <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-                <a class="navbar-brand" href="/../index">
+                <a class="navbar-brand" href="{{ ('/../index') }}">
                     <img src="img/shopgolf.png" width="80" height="50" class="d-inline-block align-center" alt="">
                 </a>
                 <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">-->
@@ -40,53 +46,52 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav mx-auto">
                         <!--<li class="nav-item active"></li>-->
-                        <a class="nav-item nav-link mx-auto inicio" href="/../index">INICIO</a>
+                        <a class="nav-item nav-link mx-auto inicio" href="{{ ('/../index') }}">INICIO</a>
 
-                        <a class="nav-item nav-link mx-auto drivers" href="/../driver">DRIVERS</a>
-                        <a class="nav-item nav-link mx-auto hierros" href="/../hierro">HIERROS</a>
-                        <a class="nav-item nav-link mx-auto putters" href="/../putter">PUTTERS</a>
-                        <a class=" nav-item nav-link mx-auto accesorios" href="/../accesorio">ACCESORIOS</a>
-                       
-                        <a class="nav-item nav-link mx-auto academia" href="/../academia">ACADEMIA</a>
-                        <a class="car" href="{{ ('carrito') }}">
+                        <a class="nav-item nav-link mx-auto drivers" href="/categoria/1">DRIVERS</a>
+                        <a class="nav-item nav-link mx-auto hierros" href="/categoria/2">HIERROS</a>
+                        <a class="nav-item nav-link mx-auto putters" href="/categoria/3">PUTTERS</a>
+                        <a class=" nav-item nav-link mx-auto accesorios" href="/categoria/4">ACCESORIOS</a>
+                        <a class="nav-item nav-link mx-auto academia" href="{{ ('academia') }}">ACADEMIA</a>
+                        <!--<a class="car" href="{{ ('carrito') }}">
                             <li class="nav-item"></li>
                             <div class=carro">
                                 <ion-icon name="cart"></ion-icon>{{ $carrito->cantidadProducto() }}
-                            </div>
+                            </div>-->
                     </div>
                 </div>
-
+                <div class="carrito" style="margin-left:15rem">
+                    <ul class="navbar-nav ml-auto nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="{{ ('carrito') }}" class="nav-link waves-effect">
+                                <span class="badge blue z-depth-1"> {{ $carrito->cantidadProducto() }} </span>
+                                <i id="navbar-static-cart" alt="Cart" class="fas fa-shopping-cart fa-1.5x fa-lg"></i><span class="sr-only">
+                                </span></a></li>
+                        <!--<li class="nav-item">
+                                        <a class="nav-link font-weight-normal" href="{{ ('carrito') }}"><i id="navbar-static-cart" alt="Cart" class="fas fa-search"></i></a>-->
+                        </li>
+                    </ul>
+                </div>
                 <div class="navbar-nav d-flex flex-row justify-contents-center mx-auto">
-                  <a href=""> 
-                      Mi Carrito
-                   <span class="circle-carrito">
-                        {{-- {{$carrito->id}}
-                      {{$carrito->cantidadProductos()}} --}}
-                   </span>
-                      </a> 
-                   
-                    @if( Auth::user()) 
+                    @if( Auth::user())
                     @if(auth()->user()->avatar != 'user.jpg')
                     <img width="40" height="40" src="/storage/avatars/{{ auth()->user()->avatar  }}">
                     @endif
-                                <div class="container-fluid">
+                    <div class="container-fluid">
 
-                    <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-uppercase mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-                                <div class="container-fluid" >
-                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/../perfilusuario">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-uppercase mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <div class="container-fluid">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/perfilusuario">
                                         Perfil de Usuario
                                     </a>
-                                    @if(Auth::user()->email == 'atorresgolf@gmail.com')
-                                    <a class="dropdown-item" href="/../listado">
-                                        ABM
-                                    </a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                    {{-- <a class="dropdown-item" href="/profile">
+                                        Subir Foto
+                                    </a>--}}
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar Sesion') }}
                                     </a>
@@ -95,23 +100,32 @@
                                         @csrf
                                     </form>
                                 </div>
-                                </div>
-                                
-                            </li>
                             </div>
-                      @else
-                    <a class="btn btn-light btn-sm mr-3" href='/../register' role="button">Creá tu cuenta</a>
-                    <a class="btn btn-light btn-sm mr-3" href='/../login'' role="button">Ingresá</a>
-                
-                    @endif
-                </div>
-                           </nav>
+
+                        </li>
+                    </div>
+                    @else
+                    <!--<a class="btn btn-light btn-sm mr-3" href='{{ ('register') }}' role="button">Creá tu cuenta</a>
+                    <a class="btn btn-light btn-sm mr-3" href='{{ ('login') }}' role="button">Ingresá</a>-->
+                    <div class="navbar-nav d-flex flex-row justify-contents-center mx-auto">
+                        <div class="mx-auto">
+                            <a class="btn btn-dark btn-sm" href='{{ ('register') }}' role="button">Creá tu cuenta</a>
+                            <a class="btn btn-dark btn-sm" href='{{ ('login') }}' role="button">Ingresá</a>
+                        </div>
+                        @endif
+
+                    </div>
+                    <!--<div class="navbar-nav d-flex flex-row justify-contents-center mx-auto">-->
+                    <!--<div class="mx-auto">
+                <a class="btn btn-dark btn-sm" href='{{ ('register') }}' role="button">Creá tu cuenta</a>
+                <a class="btn btn-dark btn-sm" href='{{ ('login') }}' role="button">Ingresá</a>
+                <!--</div>-->
+
+            </nav>
         </div>
     </header>
 
-    <section>
-        @yield('principal')
-    </section>
+    @yield('principal')
 
 
     <footer>
@@ -142,14 +156,14 @@
             </section>
             <section class="link">
                 <ul>
-                    <li><a href="/../index">Home</a></li>
+                    <li><a href="{{ ('/../index') }}">Home</a></li>
                     <br>
-                    <li><a href="/../preguntasfrecuentes">Preguntas Frecuentes</a></li>
-                    <li><a href="/../register">Formulario de Registro</a></li>
-                   @if(Auth::user())
-                    <li><a href="/../perfilusuario">Perfil de Usuario</a></li>
+                    <li><a href="{{ ('/../preguntasfrecuentes') }}">Preguntas Frecuentes</a></li>
+                    <li><a href="{{ ('/../register') }}">Formulario de Registro</a></li>
+                    @if(Auth::user())
+                    <li><a href="{{ ('/../perfilUsuario') }}">Perfil de Usuario</a></li>
                     @endif
-                    <li><a href="/../contacto">Contacto</a></li>
+                    <li><a href="{{ ('/../contacto') }}">Contacto</a></li>
                 </ul>
             </section>
             <div>
@@ -159,11 +173,21 @@
             </div>
         </div>
     </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Optional JavaScript
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
 
 </html>
