@@ -19,7 +19,13 @@
                     <h3 class="card-title">Consulte por varas</h3>
                     <p class="card-text"></p>
                     <a href="/detalle/{{$producto->id}}" class="card-link">Ver Detalles</a>
-                    <a href="/carrito" class="btn btn-success">Agregar al Carrito</a>
+
+                    <a id="carrito" class="btn btn-primary" href="{{url('irCarrito')}}" role="button">Agregar al Carrito</a>
+
+                   {{-- <form method="POST" action="EnCarrito" class="inline-block">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="producto_id" value="{{$producto->id}}">
+                        <input type="submit" value="Agregar al Carrito" class="btn btn-success"> --}}
                 </div>
             </div>
         </div>

@@ -199,9 +199,8 @@
                         @endif
                         <div class="row mt-3">
                             <div class="col-md-12 text-center text-md-left text-md-right">
-                                <button class="btn btn-info btn-rounded">
-                                    <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Agregar carrito</button>
-                                    
+                                <a href="carrito" class="btn btn-success">Agregar al Carrito</a>
+    
                             </div>
                         </div>
                     </div>

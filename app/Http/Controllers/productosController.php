@@ -34,6 +34,14 @@ class productosController extends Controller
         $vac = compact('productos');
         return view("product", $vac);
     }
+    public function carrito(Request $req)
+    {
+        $productos = Producto::all();
+
+          // dd($productos);
+        $vac = compact('productos');
+        return view("carrito", $vac);
+    }
 
    /* public function prodcat(Request $req)
     {

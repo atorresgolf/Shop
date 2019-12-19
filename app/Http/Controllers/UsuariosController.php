@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 
 //use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+//use Illuminate\Support\Facades\Validator;
 
 
 
@@ -23,21 +23,59 @@ use Illuminate\Support\Facades\Validator;
 class UsuariosController extends Controller
 {
     //
+   /* protected function validator(array $req)
+    {
+        return Validator::make($req, [
+            'name' => [ 'string', 'max:255'],
+            'surname' => [ 'string', 'min:1'],
+            'email' => [ 'string', 'email', 'max:255', 'unique:users'],
+            'password' => [ 'string', 'min:8', 'confirmed'],
+            'dni' => ['string', 'min:8', 'max:11'],
+            'fechaNac' => ['date'],
+            'domicilio' => ['string', 'max:100'],
+            'localidad' => ['string', 'max:45'],
+            'provincia' => ['string', 'max:45'],
+
+
+        ]);
+    }*/
 public function usuario()
 {
-        $usuario = Auth::user();
-        $vars = compact('usuario');
+    $user = User::all();
+        $vars = compact('user');
 
-        return view('usuario', $vars);
-}
+        return view('/modifUsuario', $user);
+   
+        }
 
     public function update(Request $req)
     {
+        request()->validate([
+            'name' => ['required','string', 'max:255'],
+            'surname' => ['required','string', 'min:1'],
+            //'email' => ['string', 'email', 'max:255', 'unique:users'],
+           // 'password' => ['string', 'min:8', 'confirmed'],
+            'dni' => ['required','string', 'min:8', 'max:11'],
+            'fechaNac' => ['required','date'],
+            'domicilio' => ['required','string', 'max:100'],
+            'localidad' => ['required','string', 'max:45'],
+            'provincia' => ['required','string', 'max:45'],
+
+        ],
+    [
+        'name.required' => 'El nombre es obligatorio',
+        'surname.required' => 'El apellido es obligatorio',
+        'dni.required' => 'El DNI es obligatorio',
+        'fechaNac.required' => 'La Fecha de Nacimiento es obligatoria',
+        'domicilio.required' => 'El domicilio es obligatorio',
+        'localidad.required' => 'La localidad es obligatoria',
+        'provincia.required' => 'La provincia es obligatoria',
+    ]);
         $user = Auth::user();
 
         $user->name = $req['name'];
         $user->surname = $req['surname'];
-        $user->email = $req['email'];
+       // $user->email = $req['email'];
         $user->dni = $req['dni'];
         $user->fechaNac = $req['fechaNac'];
         $user->domicilio = $req['domicilio'];
@@ -47,7 +85,7 @@ public function usuario()
             $user->password = Hash::make($req['password']);
            
        }
-       if($req->avatar)
+       if($req->hasfile('avatar'))
        {
             $req->validate([
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
@@ -60,20 +98,31 @@ public function usuario()
             $user->avatar = $avatarName;
 
        }
-        $validator = Validator::make($req->all(), [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
+        /*$validator = Validator::make($req->all(), [
+            'name' => ['string', 'max:255'],
+            'surname' => ['string', 'min:1'],
+            //'email' => ['string', 'email', 'max:255', 'unique:users'],
+           // 'password' => ['string', 'min:8', 'confirmed'],
+            'dni' => ['string', 'min:8', 'max:11'],
+            'fechaNac' => ['date'],
+            'domicilio' => ['string', 'max:100'],
+            'localidad' => ['string', 'max:45'],
+            'provincia' => ['string', 'max:45'],
+
+
         ]);
 
         if ($validator->fails()) {
-            return redirect('post/create')
+            return redirect('perfilusuario')
                 ->withErrors($validator)
                 ->withInput();
-        }
-        
-        $user->save();
+        }*/
+            $user->save();
 
-        return redirect('/index');
+            return redirect('/perfilUsuario');
+        
+        
+       
     }
     
 

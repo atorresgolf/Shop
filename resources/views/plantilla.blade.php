@@ -80,16 +80,16 @@
                     <div class="container-fluid">
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-uppercase mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-uppercase mr-3" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <div class="container-fluid">
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/perfilusuario">
+                                    <a class="dropdown-item" href="{{url('perfilUsuario')}}">
                                         Perfil de Usuario
                                     </a>
                                     @if(Auth::user()->email == 'atorresgolf@gmail.com')
-                                    <a class="dropdown-item" href="/../productos">
+                                    <a class="dropdown-item" href="{{url('productos')}}">
                                         ABM
                                     </a>
                                     @endif

@@ -36,7 +36,6 @@ Route::get('/index', function () {
     return view('index');
 });
 
-
 Route::get('/drivers', function () {
     return view('drivers');
 });
@@ -59,6 +58,7 @@ Route::get('/academia', function () {
 
 Route::get("/usuario", "UsuariosController@usuario")->middleware('auth');
 
+Route::get('/irCarrito', 'productosController@carrito');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -109,12 +109,16 @@ Route::get('contacto', function () {
 
 
 
-
-Route::get("/usuario/{id}", "UsuariosController@perfil");
 Route::get("/perfilusuario", "UsuariosController@perfilusuario");
 
+Route::get("/usuario/{id}", "UsuariosController@perfil");
+Route::get("/perfilUsuario", "UsuariosController@perfilusuario");
+
 //Route::get("/usuario/{id}/edit", "UsuariosController@edit");
-Route::post("/perfilusuario", "UsuariosController@update");
+
+Route::get("/modifUsuario", "UsuariosController@usuario");
+
+Route::post("/modifUsuario", "UsuariosController@update");
 
 Route::get('profile', 'UserController@profile');//funciona para subir foto perfil
 Route::post('profile', 'UserController@update_avatar'); //funciona cambiar foto

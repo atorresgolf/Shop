@@ -20,7 +20,7 @@
                         <h3 class="card-title">Consulte por varas</h3>
                         <p class="card-text"></p>
                         <a href="/detalle/{{$producto->id}}" class="card-link">Ver Detalles</a>
-                        <a href="/carrito" class="btn btn-success">Agregar al Carrito</a>
+                        <a href="carrito" class="btn btn-success">Agregar al Carrito</a>
                 </div>
             </div>
       

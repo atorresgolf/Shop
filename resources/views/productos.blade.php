@@ -10,8 +10,9 @@
                     <div class="table-wrapper">
                         <h1 class="text-center">ABM DE PRODUCTOS</h1>
                         <!--BOTON AGREGAR PRODUCTO--------------------->
-                        <a id="agergar" class="btn btn-success" href="/../agregarproductos" role="button" >AGREGAR </a>
-
+                        <div class='agregar' style='margin-left:60rem'>
+                            <a id="agregar" class="btn btn-success" href="/../agregarproductos" role="button">AGREGAR </a>
+                        </div>
                        {{-- <form method="POST" action="">
                             <button class="btn btn-success mb-5" type="submit" id="agregar" style="margin-left:75rem">AGREGAR</button>
                         </form>--}}

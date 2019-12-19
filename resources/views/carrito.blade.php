@@ -95,11 +95,11 @@
                             </h4>
                         </td>
 
-                        <td class="text-left">
+                       {{-- <td class="text-left">
                             <h3 class="mt-1">
                                 <strong>$&nbsp;{{ $total }}</strong>
                             </h3>
-                        </td>
+                        </td> --}}
                         <td colspan="3" class="text-right">
                             <button type="button" class="btn btn-success btn-rounded">Completa tu Compra
                                 <i class="fas fa-angle-right right"></i>
